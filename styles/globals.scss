@@ -876,6 +876,75 @@ nav {
   }
 }
 
+.options{
+  width: 100%;
+  margin-top: 50px;
+  h1{
+    margin: 15px 180px;
+  }
+  .op-body{
+    margin-left: 180px;
+    margin-right: 180px;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    button{
+      cursor: pointer;
+      height: 50px;
+      width: 48%;
+      border: none;
+      background-color: $grey-color;
+      font-size: 24px;
+      font-weight: 700;
+      color: $white-color;
+      transition: .3s ease-out;
+      &.active{
+        background-color: $primary-color;
+      }
+      &:hover{
+        background-color: $primary-color;
+        transform: scale(1.04);
+      }
+    }
+  }
+}
+
+.tab{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  .rate-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    border-bottom: 3px solid $secondary-color;
+    div{
+      width: 100px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+  .rate-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    border-bottom: 1px solid $primary-color;
+    div{
+      width: 100px;
+    }
+  }
+}
+
 /* COMMON CLASSES */
 
 .center-div {
