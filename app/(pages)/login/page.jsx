@@ -7,7 +7,7 @@ const Login = () => {
     const [name, setName] = useState('')
     const [pass, setPass] = useState('')
     const [rate, setRate] = useState('')
-    const [nRate, setNRate] = useState(localStorage.getItem('rate') || 9)
+    const [nRate, setNRate] = useState(9)
 
     const [error, setError] = useState(false)
     const [logged, setLogged] = useState(false)
@@ -30,12 +30,15 @@ const Login = () => {
     useEffect(() => {
         setLoading(true)
         const datoGuardado = localStorage.getItem('session');
-        
+        const rrate = localStorage.getItem('rate')
         if (datoGuardado) {
-          setLogged(datoGuardado);
+            setLogged(datoGuardado)
+          }
+        if (rrate) {
+          setNRate(rrate)
         }
         setLoading(false)
-      }, [logged]);
+    }, [logged])
     
     if(isLoading){
         return(

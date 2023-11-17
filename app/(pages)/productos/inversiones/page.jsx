@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { NumericFormat } from "react-number-format"
 
 const Invest = () => {
@@ -11,7 +11,7 @@ const Invest = () => {
   const [inQuant, setInQuant] = useState(0)
   const [option,setOption] = useState(0)
   const [pagos, setPagos] = useState([])
-  const [rate, setRate] = useState(localStorage.getItem('rate') || 9)
+  const [rate, setRate] = useState(9)
 
   const getProfit=()=>{
     let profit = parseFloat(invest)
@@ -105,6 +105,14 @@ const Invest = () => {
     }
     console.log(pagos)
   }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if(localStorage.getItem('rate')){
+        setRate(localStorage.getItem('rate'))
+      }
+    }
+  }, []);
 
 
   return (
