@@ -11,7 +11,7 @@ const Invest = () => {
   const [inQuant, setInQuant] = useState(0)
   const [option,setOption] = useState(0)
   const [pagos, setPagos] = useState([])
-  const rate = localStorage.getItem('rate')
+  const [rate, setRate] = useState(localStorage.getItem('rate') || 9)
 
   const getProfit=()=>{
     let profit = parseFloat(invest)
