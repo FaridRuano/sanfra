@@ -48,7 +48,7 @@ const Nav = () => {
             </div>       
             <Image className={isActive?"navs-ico pointer":"navs-ico pointer closed"} src={navsIco} width={21} height={39} alt="Menú" onClick={()=>setActive(!isActive)}/>
             <div className="nav-sanfra-warp">
-                <span className="underline pointer">SANFRA WEB</span>
+                <span className="underline pointer" onClick={()=>activateNav(0, '/login')}>SANFRA WEB</span>
             </div>
         </div>        
     </nav>

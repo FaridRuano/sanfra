@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react"
+import { NumericFormat } from "react-number-format"
 
 const Invest = () => {
   const [invest, setInvest] = useState('')
@@ -10,61 +11,99 @@ const Invest = () => {
   const [inQuant, setInQuant] = useState(0)
   const [option,setOption] = useState(0)
   const [pagos, setPagos] = useState([])
-  const rate = 9
+  const rate = localStorage.getItem('rate')
 
   const getProfit=()=>{
-    let rateCalc = getRate()/100
-    let profit = (parseFloat(rateCalc*invest)+parseFloat(invest)).toFixed(2)
+    let profit = parseFloat(invest)
+    let tiempo = parseInt(value)
+    if(timeVal === 1){
+      let rat = (tiempo*(rate/100))/12
+      profit = (profit * (1 + rat)).toFixed(2);
+      console.log(tiempo)
+      console.log(rate)
+      console.log(rat)
+      console.log(1+rat)
+
+
+
+      return profit      
+    }else{
+      let rat = (tiempo*rate)/365
+      profit = (profit * (1 + rat)).toFixed(2);
+      return profit
+    }
     return profit
+  }
+
+  const getDate=()=>{
+    let fec = new Date();
+    if(timeVal === 1){
+      console.log(value)
+      fec.setMonth(fec.getMonth() + parseInt(value));
+    }else{
+      fec.setDate(fec.getDate() + parseInt(value));      
+    }
+    let formatted = fec.toISOString().split('T')[0];
+    return formatted
   }
 
   const getRate = () =>{
     if(timeVal === 1){
-      if(value >= 12){
-        return 9
+      if(value >=12){
+        return rate
       }else{
-        let r = ((value*9)/12).toFixed(2)
-        return r
+        let r = ((value*rate)/12).toFixed(2)
+        return r      
       }
     }
-    if(timeVal === 2){
-      if(value >= 365){
-        return 9
+    if(timeVal === 2){      
+      if(value >=365){
+        return rate
       }else{
-        let r = (value*9)/365
-        return r.toFixed(2)
-      }
+        let r = ((value*rate)/365).toFixed(2)
+        return r   
+      }          
     }
-    return 9
+    return rate
   }
 
-  const calcularPagosMensuales = (capital, numeroCuotas, interes) => {
-    const cuotaMensual = ((capital*(interes/100))/numeroCuotas).toFixed(2)
-  
+  const calcularPagosMensuales = (capital, numeroCuotas) => {
+    const cuotaMensual = ((getProfit()-capital)/numeroCuotas).toFixed(2)
+    let fec = new Date();
+    let formattedDate = fec.toISOString().split('T')[0];
     const primerMes = {
       No: 0,
+      Fecha: formattedDate,
       Capital: capital,
-      Interes: interes,
-      Cuota: 0,
+      Interes: getRate(),
+      Acumulado: 0,
+      Cuota: cuotaMensual,
     };
 
     pagos.push(primerMes);
     // Crear la lista de pagos mensuales
   
     for (let mes = 1; mes <= numeroCuotas; mes++) {
+      fec.setMonth(fec.getMonth() + 1);
+      let formattedDat = fec.toISOString().split('T')[0];
+
       let cap = (cuotaMensual*mes).toFixed(2)
       let ncap = parseFloat(capital) + parseFloat(cap)
   
       // Crear objeto para representar el pago mensual
       const pagoMensual = {
         No: mes,
-        Capital: ncap,
-        Interes: interes,
-        Cuota: cap,
+        Fecha: formattedDat,
+        Capital: ncap.toFixed(2),
+        Interes: getRate(),
+        Acumulado: cap,
+        Cuota: cuotaMensual,
+        
       };
   
       pagos.push(pagoMensual);
     }
+    console.log(pagos)
   }
 
 
@@ -87,11 +126,11 @@ const Invest = () => {
             {invest&&(
               <span>$</span>
             )}
-            <input type="number" placeholder="$10.000" value={invest || ''} onChange={(e)=>{if(e.target.value <= 1000000){
-                  setInvest(e.target.value)
-                }
-                setPagos([])
-                setOption(0)
+            <NumericFormat allowNegative={false} maxLength={8} placeholder="$10.000" value={invest || ''} 
+            onChange={(e)=>{
+                  setInvest(e.target.value)                
+                  setPagos([])
+                  setOption(0)
                 }}/>
           </div>
         </div>
@@ -143,7 +182,7 @@ const Invest = () => {
               }}>
               {timeVal === 1 ? (<>12</>):(<>91</>)}
             </button>
-            <input type="number" className={quant > 3 ? "active" : ""} value={inQuant || ''} maxLength={3}
+            <NumericFormat allowNegative={false} maxLength={3} className={quant > 3 ? "active" : ""} value={inQuant || ''}
             onChange={
               (e)=> {
                 setQuant(4)
@@ -156,21 +195,21 @@ const Invest = () => {
                   setValue(0)
                 }
                 if(timeVal === 1){
-                  if(e.target.value <= 150){
+                  if(e.target.value <= 150 && e.target.value > 0){
                     setInQuant(e.target.value)
                     setValue(e.target.value)
                   }
                 }else{
-                  if(e.target.value <= 10000){
+                  if(e.target.value <= 10000 && e.target.value > 0){
                     setInQuant(e.target.value)
                     setValue(e.target.value)
                   }
-                }
+                }                
               }}/>
           </div>
         </div>
       </section>
-      {value && invest && (
+      {value && invest > 0 && (
         <>
           <section className="profit">
             <div className="titles">
@@ -182,7 +221,7 @@ const Invest = () => {
               <h1>
                 ${getProfit()}
               </h1>
-              <span>Con una tasa del <span>{getRate()}%</span></span>
+              <span>Con una tasa del <span>{getRate()}%</span> anual</span>
             </div>
           </section>
           <section className="options">
@@ -190,14 +229,14 @@ const Invest = () => {
               Como te gustaría recibir los intereses?
             </h1>
             <div className="op-body">
-              <button type="button" className={option === 1 && timeVal !== 2? "active" : ""} onClick={()=>{setOption(1); calcularPagosMensuales(parseFloat(invest), parseFloat(value), getRate());}}>
+              <button type="button" className={option === 1 && timeVal !== 2? "active" : ""} onClick={()=>{setOption(1); calcularPagosMensuales(parseFloat(invest), parseFloat(value));}}>
                 Mensualmente
               </button>
-              <button type="button" className={option === 2 ? "active" : ""} onClick={()=>setOption(2)}>
+              <button type="button" className={option === 2 ? "active" : ""} onClick={()=>{setOption(2);setPagos([])}}>
                 Al final
               </button>
             </div>
-            {option === 1 && timeVal !== 2 &&(
+            {option === 1 && timeVal !== 2 ?(
               <div className="tab">
                 <div className="rate-header">
                   <div>
@@ -207,10 +246,16 @@ const Invest = () => {
                     Capital
                   </div>
                   <div>
+                    Fecha
+                  </div>
+                  <div>
                     Interes
                   </div>
                   <div>
                     Cuota
+                  </div>
+                  <div>
+                    Acumulado
                   </div>
                 </div>
                 {
@@ -224,16 +269,33 @@ const Invest = () => {
                           ${pag.Capital}
                         </div>
                         <div>
+                          {pag.Fecha}
+                        </div>
+                        <div>
                           {pag.Interes}%
                         </div>
                         <div>
                           ${pag.Cuota}
+                        </div>
+                        <div>
+                          ${pag.Acumulado}
                         </div>
                       </div>
                     )
                   })
                 }
               </div>
+            ):(
+              <>
+                {option === 2 &&(
+                  <div className="final">
+                    <p>
+                      Recibiras <span> ${getProfit()} </span> el <span> {getDate()} </span>
+                    </p>
+                      
+                  </div>)
+                }
+              </>
             )}
           </section>
         </>
