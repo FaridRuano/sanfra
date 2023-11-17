@@ -29,7 +29,7 @@ const Invest = () => {
 
       return profit      
     }else{
-      let rat = (tiempo*rate)/365
+      let rat = (tiempo*(rate/100))/365
       profit = (profit * (1 + rat)).toFixed(2);
       return profit
     }
