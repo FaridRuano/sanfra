@@ -12,6 +12,7 @@ const Invest = () => {
   const [option,setOption] = useState(0)
   const [pagos, setPagos] = useState([])
   const [rate, setRate] = useState(9)
+  const [name, setName] = useState('San Francisco')
 
   const getProfit=()=>{
     let profit = parseFloat(invest)
@@ -111,6 +112,9 @@ const Invest = () => {
       if(localStorage.getItem('rate')){
         setRate(localStorage.getItem('rate'))
       }
+      if(localStorage.getItem('empre')){
+        setName(localStorage.getItem('empre'))
+      }
     }
   }, []);
 
@@ -124,7 +128,7 @@ const Invest = () => {
               Invierte con
             </h3>
             <h1>
-              San Francisco
+              {name}
             </h1>
           </div>
         </div>
