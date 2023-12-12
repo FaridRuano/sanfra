@@ -24,11 +24,6 @@ import SecreSmiling from "@public/images/secre-smiling.png"
 import EducateLogo  from "@public/icons/educate-logo.png"
 import SecreBG from "@public/images/secre-bg.png"
 
-
-
-
-
-
 const Home = () => {
   return (
     <>

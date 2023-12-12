@@ -15,6 +15,7 @@ const Nav = () => {
 
     const activateNav = (menu, link) => {
         setNavActive(menu)
+        setActive(true)
         router.push(link)
     }
 
@@ -26,27 +27,31 @@ const Nav = () => {
         return clna
     }
   return (
-    <nav className="center-div">
+    <nav className="nav-div">
         <div className="nav-warp row">
-            <Image className="sf-logo pointer" src={sfLogo} width={67} height={35} alt="San Francisco" onClick={()=>activateNav(0, '/')}/>
-            <div className={isActive ? "nav-menu" : "nav-menu hidden"}>
-                <span className={classMenu(1)} onClick={()=>activateNav(1, '/nosotros')}>
-                    Nosotros
-                </span>
-                <span className={classMenu(2)} onClick={()=>activateNav(2, '/productos')}>
-                    Productos
-                </span>
-                <span className={classMenu(3)} onClick={()=>activateNav(3, '/servicios')}>
-                    Servicios
-                </span>
-                <span className={classMenu(4)} onClick={()=>activateNav(4, '/encuentranos')}>
-                    Encuéntranos
-                </span>
-                <span className={classMenu(5)} onClick={()=>activateNav(5, '/contactanos')}>
-                    Contáctanos
-                </span>
-            </div>       
-            <Image className={isActive?"navs-ico pointer":"navs-ico pointer closed"} src={navsIco} width={21} height={39} alt="Menú" onClick={()=>setActive(!isActive)}/>
+            <div className="nav-one">
+                <div className="sf-logo-div">
+                    <Image className="sf-logo pointer" src={sfLogo} width={67} height={35} alt="San Francisco" onClick={()=>activateNav(0, '/')}/>
+                </div>
+                <div className={isActive ? "nav-menu" : "nav-menu hidden"}>
+                    <span className={classMenu(1)} onClick={()=>activateNav(1, '/nosotros')}>
+                        Nosotros
+                    </span>
+                    <span className={classMenu(2)} onClick={()=>activateNav(2, '/productos')}>
+                        Productos
+                    </span>
+                    <span className={classMenu(3)} onClick={()=>activateNav(3, '/servicios')}>
+                        Servicios
+                    </span>
+                    <span className={classMenu(4)} onClick={()=>activateNav(4, '/encuentranos')}>
+                        Encuéntranos
+                    </span>
+                    <span className={classMenu(5)} onClick={()=>activateNav(5, '/contactanos')}>
+                        Contáctanos
+                    </span>
+                </div>       
+                <Image className={isActive?"navs-ico pointer":"navs-ico pointer closed"} src={navsIco} width={21} height={39} alt="Menú" onClick={()=>setActive(!isActive)}/>
+            </div>
             <div className="nav-sanfra-warp">
                 <span className="underline pointer" onClick={()=>activateNav(0, '/login')}>SANFRA WEB</span>
             </div>

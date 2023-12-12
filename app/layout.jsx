@@ -13,11 +13,7 @@ export const metadata = {
 
 const RootLayout = ({children}) => {
   return (
-    <html lang='en'>
-      <head>
-        <link rel="icon" href="/public/icons/sf-favico.svg" sizes="any" />
-
-      </head>
+    <html lang='en'>      
       <body>
         <div className='main'>
           <main className='app'>
