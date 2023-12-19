@@ -156,7 +156,12 @@ body {
     transform: scale(1);
     margin-top: 100px;
     margin-left: 100px;
-
+  }
+  @media (max-width: 600px) {
+    position: static;
+    transform: scale(1);
+    margin-top: 100px;
+    margin-left: auto;
   }
 }
 
@@ -231,6 +236,18 @@ body {
     }
     .dcard{
       top: 20px;
+    }
+  }
+  @media (max-width: 600px){
+    top: 230px;
+    .dbg{
+      scale: 1.2;
+      top: -150px;
+      left: 650px;
+    }
+    .dcard{
+      top: 10px;
+      left: 390px;
     }
   }
 }
