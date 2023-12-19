@@ -110,7 +110,8 @@ body {
   padding: 0;
   position: relative;
   @media (max-width: 900px){
-    
+    overflow: hidden;
+    height: 950px;
   }
 }
 
@@ -152,9 +153,10 @@ body {
   }
   @media (max-width: 900px) {
     position: static;
-    margin: auto;
-    transform: scale(1.5);
-    margin-top: 200px;
+    transform: scale(1);
+    margin-top: 100px;
+    margin-left: 100px;
+
   }
 }
 
@@ -206,7 +208,7 @@ body {
       left: 260px;
     }
     @media (max-width: 1119px) {
-      left: 350px;
+      left: 350px;      
       transform: scale(0.8);
     }
   }
@@ -218,6 +220,17 @@ body {
 
     @media (max-width: 1119px) {
       left: 250px;
+    }
+  }
+  @media (max-width: 900px){
+    top: 200px;
+    .dbg{
+      scale: 1.2;
+      top: -150px;
+      left: 650px;
+    }
+    .dcard{
+      top: 20px;
     }
   }
 }
@@ -1290,6 +1303,7 @@ body {
       }
     }    
   }
+
 }
 
 @media (max-width: 1120px){
