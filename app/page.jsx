@@ -14,7 +14,7 @@ import sanfrApp from "@public/images/sanfrapp-1.png"
 import chrome from "@public/icons/chrome-ico.png"
 import appStore from "@public/icons/app-store.png"
 import gogPlay from "@public/icons/gplay-ico.png"
-import copColon from "@public/images/colon-suc1.png"
+import copColon from "@public/images/colon-suc.jpg"
 import Atm from "@public/icons/atm-suc.png"
 import sanfraFriend2 from "@public/icons/sanfra-friend-2.png"
 import sucIco from "@public/icons/suc-ico.png"
@@ -131,20 +131,26 @@ const Home = () => {
                     <span>Todo</span> a tu alcance
                 </div>
                 <div className="icons-info">
-                    <div>
-                        <Image src={sucIco} width={63} height={61}/>
+                    <div className="div-icon">
+                        <div className="div-image">
+                            <Image src={sucIco} width={63} height={'auto'}/>
+                        </div>
                         <div>
                             <span>32</span> Agencias
                         </div>
                     </div>
-                    <div>
-                        <Image src={Atm} width={41} height={61}/>
+                    <div className="div-icon">
+                        <div className="div-image">
+                            <Image src={Atm} width={41} height={'auto'}/>
+                        </div>
                         <div>
                             <span>64</span> ATM
                         </div>
                     </div>
-                    <div>
-                        <Image src={sanfraFriend2} width={80} height={60}/>
+                    <div className="div-icon">
+                        <div className="div-image">
+                            <Image src={sanfraFriend2} width={80} height={'auto'}/>
+                        </div>
                         <div>
                             <span>108</span> Amigo Sanfra
                         </div>
