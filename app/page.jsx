@@ -166,9 +166,9 @@ const Home = () => {
                 <Image src={PronoPhone} width={728} height={'auto'}/>
             </div>
             <div className="sixth-titles">
-                <Image className="img" src={PronosSanfra} width={415} height={143}/>
+                <Image className="img" src={PronosSanfra} width={415} height={'auto'}/>
                 <span className="title">Regístrate, participa y <span>GANA.</span></span>
-                <div>
+                <div className="sixth-btn">
                     JUEGA AQUí
                 </div>
             </div>

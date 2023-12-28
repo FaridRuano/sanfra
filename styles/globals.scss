@@ -113,142 +113,139 @@ body {
     overflow: hidden;
     height: 850px;
   }
-}
-
-.main-titles{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  top: 35%;
-  left: 180px;
-  width: fit-content;
-  pointer-events: none;
-  transition: .3s ease-out;
-  .title-01{
-    color: $primary-color;
-    font-weight: 700;
-    font-size: 48px;
-  }
-  .title-02{
-    color: $secondary-color;
-    font-weight: 400;
-    font-size: 48px;
-    span{
-      font-weight: 700;
-    }
-  }
-  .title-03{
-    font-weight: 700;
-    font-size: 48px;
-    span{
-      color: $primary-color;
-    }
-  }
-  @media (min-width: 1120px){
-    left: 120px;
-  }
-
-  @media (max-width: 1119px){
-    left: 120px;
-  }
-  @media (max-width: 900px) {
-    position: static;
-    margin: 100px auto;
-  }
-  @media (max-width: 600px) {
-    position: static;
-    transform: scale(0.85);
-    margin: 100px auto;
-  }
-}
-
-.titles-btns{
-  pointer-events: all;
-  display: flex;
-  flex-direction: row;
-  margin-top: 50px;
-  gap: 2rem;
-  font-size: 24px;
-  font-weight: 700;
-  .tit-btn{
-    transition: .3s ease-out;
+  .main-titles{
     position: relative;
-    &:before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 4px; /* Tamaño del subrayado */
-      background-color: $primary-color; /* Color del subrayado */
-      bottom: -10px;
-      left: 0;
-      transform: scaleX(0); /* Inicialmente sin ancho */
-      transform-origin: bottom right;
-      transition: transform 0.3s ease-in-out; /* Duración y tipo de transición */
-    }
-    &:hover {
+    display: flex;
+    flex-direction: column;
+    top: 35%;
+    left: 180px;
+    width: fit-content;
+    pointer-events: none;
+    transition: .3s ease-out;
+    .title-01{
       color: $primary-color;
-      &:before {
-        transform: scaleX(1); /* Subrayado completo en hover */
-        transform-origin: bottom left;
+      font-weight: 700;
+      font-size: 48px;
+    }
+    .title-02{
+      color: $secondary-color;
+      font-weight: 400;
+      font-size: 48px;
+      span{
+        font-weight: 700;
       }
     }
+    .title-03{
+      font-weight: 700;
+      font-size: 48px;
+      span{
+        color: $primary-color;
+      }
+    }
+    .titles-btns{
+      pointer-events: all;
+      display: flex;
+      flex-direction: row;
+      margin-top: 50px;
+      gap: 2rem;
+      font-size: 24px;
+      font-weight: 700;
+      .tit-btn{
+        transition: .3s ease-out;
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 4px; /* Tamaño del subrayado */
+          background-color: $primary-color; /* Color del subrayado */
+          bottom: -10px;
+          left: 0;
+          transform: scaleX(0); /* Inicialmente sin ancho */
+          transform-origin: bottom right;
+          transition: transform 0.3s ease-in-out; /* Duración y tipo de transición */
+        }
+        &:hover {
+          color: $primary-color;
+          &:before {
+            transform: scaleX(1); /* Subrayado completo en hover */
+            transform-origin: bottom left;
+          }
+        }
+      }
+    }
+    @media (min-width: 1120px){
+      left: 120px;
+    }
+  
+    @media (max-width: 1119px){
+      left: 120px;
+    }
+    @media (max-width: 900px) {
+      position: static;
+      margin: 100px auto;
+    }
+    @media (max-width: 600px) {
+      position: static;
+      transform: scale(0.85);
+      margin: 100px auto;
+    }
   }
-}
-
-.main-3dcard{
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  .dcard{
+  .main-3dcard{
+    overflow: hidden;
     position: absolute;
-    left: 172px;
-    transition: .3s ease-out;
-    
-    @media (min-width: 1120px) {
-      left: 260px;
-    }
-    @media (max-width: 1119px) {
-      left: 350px;      
-      transform: scale(0.8);
-    }
-  }
-  .dbg{
-    position: relative;
-    z-index: -2;
-    left: 0px;
-    transition: .3s ease-out;
-
-    @media (max-width: 1119px) {
-      left: 250px;
-    }
-  }
-  @media (max-width: 900px){
-    top: 200px;
-    .dbg{
-      scale: 1.2;
-      top: -150px;
-      left: 650px;
-    }
-    .dcard{
-      position: inherit;
-      transform: scale(1);
-      left: 28%;
-    }
-  }
-  @media (max-width: 600px){
-    top: 230px;
-    .dbg{
-      scale: 1.2;
-      top: -150px;
-      left: 650px;
-    }
+    top: 0;
+    right: 0;
+    z-index: -1;
     .dcard{
       position: absolute;
-      left: 39%;
-      transform: scale(0.8);
-
+      left: 172px;
+      transition: .3s ease-out;
+      
+      @media (min-width: 1120px) {
+        left: 260px;
+      }
+      @media (max-width: 1119px) {
+        left: 350px;      
+        transform: scale(0.8);
+      }
+    }
+    .dbg{
+      position: relative;
+      z-index: -2;
+      left: 0px;
+      transition: .3s ease-out;
+  
+      @media (max-width: 1119px) {
+        left: 250px;
+      }
+    }
+    @media (max-width: 900px){
+      top: 200px;
+      .dbg{
+        scale: 1.2;
+        top: -150px;
+        left: 650px;
+      }
+      .dcard{
+        position: inherit;
+        transform: scale(1);
+        left: 28%;
+      }
+    }
+    @media (max-width: 600px){
+      top: 230px;
+      .dbg{
+        scale: 1.2;
+        top: -150px;
+        left: 650px;
+      }
+      .dcard{
+        position: absolute;
+        left: 39%;
+        transform: scale(0.8);
+  
+      }
     }
   }
 }
@@ -417,6 +414,15 @@ body {
       }      
       &:hover{
         transform: translateX(10px);
+      }
+    }
+  }
+  @media (min-width: 1350px) {
+    .third-img{
+      .bg{
+        transform: scale(0.8);
+        left: 10px;
+
       }
     }
   }
@@ -789,11 +795,16 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  transition: all .3s ease-out;
   .sixth-img{
     display: block;
     position: relative;
-    left: 50px;
+    left: 0;
     width: 50%;
+    transition: all .3s ease-out;
+    img{
+      transition: all .3s ease-out;
+    }
   }
   .sixth-titles{
     width: 50%;
@@ -801,6 +812,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: all .3s ease-out;
     .img{
       display: block;      
       position: relative;
@@ -810,11 +822,13 @@ body {
       font-size: 36px;
       font-weight: 300;
       pointer-events: none;
+      transition: all .3s ease-out; 
+      text-align: center;
       span{
         font-weight: 700;
       }
     }
-    div{
+    .sixth-btn{
       background-color: $secondary-color;
       color: $white-color;
       font-size: 36px;
@@ -826,6 +840,49 @@ body {
       &:hover{
         transform: scale(1.1);
         background-color: #1de9c7;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    .sixth-img{
+      img{
+        width: 600px;
+        height: auto;
+      }
+    }
+    .sixth-titles{
+      .img{
+        width: 350px;
+        height: auto;
+      }
+      .title{
+        font-size: 24px;
+      }
+      .sixth-btn{
+        font-size: 24px;
+      }
+    }
+  }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    height: fit-content;
+    .sixth-img{
+      position: relative;
+      left: 0;
+      width: 100%;
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        position: relative;
+        left: 13px;
+        top:0px
+      }
+    }
+    .sixth-titles{
+      margin-bottom: 100px;
+      .title{
       }
     }
   }
@@ -848,17 +905,23 @@ body {
     align-items: center;
     gap: 1rem;
     pointer-events: none;
+    transition: all .3s ease-out;
+
     h2{
       margin: 0;
       font-weight: 700;
       color: $secondary-color;
-      font-size: 36px;      
+      font-size: 36px;    
+      transition: all .3s ease-out;
+
     }
     h1{
       margin: 0;
       font-weight: 700;
       font-size: 36px;
       color: $primary-color;
+      transition: all .3s ease-out;
+
     }
     p{
       margin: 0;
@@ -866,12 +929,14 @@ body {
       color: $secondary-color;
       font-size: 24px;
       text-align: center;
+      transition: all .3s ease-out;
+
     }
     span{
       font-weight: 600;
       font-size: 24px;
       cursor: pointer;
-      transition: .3s ease-out;
+      transition: all .3s ease-out;
       a{
         pointer-events: all;
         color: $primary-color;
@@ -885,12 +950,15 @@ body {
   .seventh-img{
     width: 50%;
     overflow: hidden;
+    transition: all .3s ease-out;
+    pointer-events: none;
     .secre{
+      transition: all .3s ease-out;
       position: relative;
       display: block;
       top: 361px;
       right: 0px;
-      z-index: 1;
+      z-index: 2;
     }
     .edulogo{
       position: relative;
@@ -898,12 +966,109 @@ body {
       top: -366px;
       z-index: 1;
       right: -97px;
+      transition: all .3s ease-out;
     }
     .secbg{
       position: relative;
       display: block;
       top: -570px;
       right: -10px;
+      transition: all .3s ease-out;
+    }
+  }
+  @media (max-width: 1200px) {
+    .seventh-titles{
+      h2{
+        font-size: 30px;
+      }
+      h1{
+        font-size: 30px;
+      }
+      p{
+        font-size: 18px;
+      }
+      span{
+        font-size: 18px;
+      }
+    }
+    .seventh-img{
+      .secre{
+        right: 140px;
+      }
+      .edulogo{
+        width: 200px;
+        height: auto;
+      }
+    }
+  }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    height: fit-content;
+    .seventh-titles{
+      width: 100%;
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
+    .seventh-img{
+      overflow: visible;
+      height: 300px;
+      width: 100%;
+      .secre{
+        top: -285px;
+        right: -44px;
+      }
+      .edulogo{
+        top: -977px;
+        right: -153px;
+        width: 300px;
+      }
+      .secbg{
+        top: -1204px;
+        right: -46px;
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    .seventh-img{
+      .secre{
+        top: -285px;
+        right: 37px;
+      }
+      .edulogo{
+        top: -955px;
+        right: -104px;
+        width: 200px;
+      }
+      .secbg{
+        top: -1135px;
+        right: -46px;
+        width: 800px;
+        height: auto;
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    .seventh-img{
+      overflow: visible;
+      height: 300px;
+      width: 100%;
+      .secre{
+        top: -157px;
+        right: 63px;
+        width: 750px;
+        height: auto;
+      }
+      .edulogo{
+        top: -707px;
+        right: -38px;
+        width: 200px;
+      }
+      .secbg{
+        top: -849px;
+        right: 9px;
+        width: 586px;
+        height: auto;
+      }
     }
   }
 }
