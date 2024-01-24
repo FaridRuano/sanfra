@@ -23,10 +23,12 @@ import PronoPhone from "@public/images/prono-phone.png"
 import SecreSmiling from "@public/images/secre-smiling.png"
 import EducateLogo  from "@public/icons/educate-logo.png"
 import SecreBG from "@public/images/secre-bg.png"
+import Script from 'next/script'
 
 const Home = () => {
   return (
     <>
+        <Script src="/utils/scroll-section.js"/>
         <section className="main-home">
             <div className="main-titles">
                 <span className="title-01">#TenloTodo</span>
@@ -46,7 +48,7 @@ const Home = () => {
                 <Image className="dbg" src={cardBg} width={967} height={748} alt="Sanfra Debit"/>            
             </div>
         </section>
-        <section className="second-home">
+        <section className="second-home" id="mp-second">
             <div className="second-title center-div row">
                 <h1>Tenemos <span>TODO</span> para ti</h1>
             </div>
@@ -77,7 +79,7 @@ const Home = () => {
                 </div>            
             </div>
         </section>
-        <section className="third-home">
+        <section className="third-home" id="mp-third">
             <div className="third-img">
                 <Image className="img" src={girlSmile} width={940} height={556} alt="Disfruta con Sanfra!"/>
                 <Image className="bg" src={girlBg} width={622} height={403} alt="Disfruta con Sanfra!"/>
@@ -107,7 +109,7 @@ const Home = () => {
                 </div>
             </div>
         </section>
-        <section className="fourth-home">
+        <section className="fourth-home" id="mp-fourth">
             <div className="fourth-titles">
                 <span className="tenlo">Tenlo <span>todo</span> con la</span>
                 <span className="sanfra">SANFRA</span>
@@ -115,9 +117,9 @@ const Home = () => {
                 <div className="download">
                     <p>Empieza a usarla hoy!</p>
                     <div>
-                        <Image className="ico-download" src={chrome} width={51} height={'auto'}/>
-                        <Image className="ico-download" src={appStore} width={51} height={'auto'}/>
-                        <Image className="ico-download" src={gogPlay} width={51} height={'auto'}/>
+                        <Image className="ico-download" src={chrome} width={51} height={'auto'} alt="Chrome"/>
+                        <Image className="ico-download" src={appStore} width={51} height={'auto'} alt="App Store"/>
+                        <Image className="ico-download" src={gogPlay} width={51} height={'auto'} alt="Google Play"/>
                     </div>
                 </div>
             </div>
@@ -125,7 +127,7 @@ const Home = () => {
                 <Image src={sanfrApp} width={678} height={'auto'} alt="Sanfra Web y Móvil"/>
             </div>
         </section>
-        <section className="fifth-home">
+        <section className="fifth-home" id="mp-fifth">
             <div className="fifth-titles">
                 <div className="title">
                     <span>Todo</span> a tu alcance
@@ -133,7 +135,7 @@ const Home = () => {
                 <div className="icons-info">
                     <div className="div-icon">
                         <div className="div-image">
-                            <Image src={sucIco} width={63} height={'auto'}/>
+                            <Image src={sucIco} width={63} height={'auto'} alt="Sanfra Suc"/>
                         </div>
                         <div>
                             <span>32</span> Agencias
@@ -141,7 +143,7 @@ const Home = () => {
                     </div>
                     <div className="div-icon">
                         <div className="div-image">
-                            <Image src={Atm} width={41} height={'auto'}/>
+                            <Image src={Atm} width={41} height={'auto'} alt="Sanfra ATM"/>
                         </div>
                         <div>
                             <span>64</span> ATM
@@ -149,7 +151,7 @@ const Home = () => {
                     </div>
                     <div className="div-icon">
                         <div className="div-image">
-                            <Image src={sanfraFriend2} width={80} height={'auto'}/>
+                            <Image src={sanfraFriend2} width={80} height={'auto'} alt="Sanfra Friend"/>
                         </div>
                         <div>
                             <span>108</span> Amigo Sanfra
@@ -161,19 +163,21 @@ const Home = () => {
                 <Image src={copColon} width={417} height={'auto'} alt="Agencia Colón"/>
             </div>
         </section>
-        <section className="sixth-home">
+        <section className="sixth-home" id="mp-sixth">
             <div className="sixth-img">
-                <Image src={PronoPhone} width={728} height={'auto'}/>
+                <Image src={PronoPhone} width={728} height={'auto'} alt="Prono Screen"/>
             </div>
             <div className="sixth-titles">
-                <Image className="img" src={PronosSanfra} width={415} height={'auto'}/>
+                <Image className="img" src={PronosSanfra} width={415} height={'auto'} alt="Prono Logo"/>
                 <span className="title">Regístrate, participa y <span>GANA.</span></span>
-                <div className="sixth-btn">
-                    JUEGA AQUí
-                </div>
+                <a href="https://online.coac-sanfra.com:8088" target="_blank">
+                    <div className="sixth-btn">
+                        JUEGA AQUÍ
+                    </div>
+                </a>
             </div>
         </section>
-        <section className="seventh-home">
+        <section className="seventh-home" id="mp-seventh">
             <div className="seventh-titles">
                 <h2>Tus depósitos están</h2>
                 <h1>PROTEGIDOS</h1>
@@ -184,9 +188,9 @@ const Home = () => {
                 <span><a href="https://www.cosede.gob.ec" target="_blank">www.cosede.gob.ec</a></span>
             </div>
             <div className="seventh-img">
-                <Image className="secre" src={SecreSmiling} width={967} height={'auto'}/>
-                <Image className="edulogo" src={EducateLogo} width={257} height={'auto'}/>
-                <Image className="secbg" src={SecreBG} width={900} height={'auto'}/>
+                <Image className="secre" src={SecreSmiling} width={967} height={'auto'} alt="Secre Person"/>
+                <Image className="edulogo" src={EducateLogo} width={257} height={'auto'} alt="Educate Logo"/>
+                <Image className="secbg" src={SecreBG} width={900} height={'auto'} alt="Secre Bg"/>
             </div>
         </section>        
     </>

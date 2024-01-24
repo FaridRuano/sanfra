@@ -14,6 +14,11 @@ body {
   margin: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
+
 .dev{
   padding-top: 100px;
   width: 100%;
@@ -46,7 +51,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-flex-start;
   }
 }
 
@@ -93,12 +98,58 @@ body {
 }
 
 .nav-sanfra-warp{
-  display: flex;
-  justify-content: end;
+  display: inline;
+  justify-content: flex-end;
+  position: relative;
   span {
     color: $white-color;
     font-size: 24px;
     font-weight: 700;
+  }
+  .nav-onHover{
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease-out;
+    width: 100%;
+    filter: blur(5px);
+    .onHover-warp{
+      padding-top: 40px;
+      background-color: $secondary-color;
+      .onhover-option{
+        display: flex;
+        align-items: center;
+        height: 30px;
+        cursor: pointer;
+        span{
+          font-size: 16px;
+          font-weight: 200;
+          margin-left: 10px;
+          transition: all .3s ease-out;
+        }
+        transition: all .3s ease-out;
+        &:hover{
+          background-color: $grey-color;
+          span{
+            color: $secondary-color;
+            font-weight: 700;
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
+  &:hover{
+    .nav-onHover{
+      filter: blur(0);
+      opacity: 1;
+      top: 25px;
+      pointer-events: all;
+      background-color: transparent;
+    }
   }
 }
 
@@ -251,8 +302,12 @@ body {
 }
 
 .second-home{
-  height: 500px;
   width: 100%;
+  height: 100px;
+  transition: 1.2s ease-out;
+  filter: blur(5px);
+  overflow: hidden;
+  opacity: 0;
   .second-title{
     width: 100%;    
     height: 40%;
@@ -316,6 +371,7 @@ body {
     }   
     @media (max-width: 600px) {
       height: 80%;
+      transition: 2s ease-out;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       justify-content: center;
@@ -325,19 +381,31 @@ body {
       }
     } 
   }
+  &.show{
+    filter: blur(0);
+    height: 500px;
+    opacity: 1;
+    @media (max-width: 900px) {
+      margin: 100px 0;
+      height: 400px;    
+    }
+
+  }
   @media (max-width: 900px) {
     margin: 100px 0;
-    height: 400px;    
+    height: 0;    
   }
 }
 
 .third-home{
   width: 100%;
   height: 556px;
-  background-color: $primary-color;
+  background-color: $white-color;
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  transition: 1s ease-out;
+  overflow: hidden;
   .third-img{
     width: 50%;
     display: flex;
@@ -378,7 +446,7 @@ body {
     .title-ico{
       display: flex;
       margin-left: 80px;
-      justify-content: start;
+      justify-content: flex-start;
       align-items: center;
       gap: 1.5rem;
       .img{
@@ -416,6 +484,9 @@ body {
         transform: translateX(10px);
       }
     }
+  }
+  &.show{
+    background-color: $primary-color;
   }
   @media (min-width: 1350px) {
     .third-img{
@@ -561,8 +632,11 @@ body {
     gap: 0;
     position: relative;
     left: 180px;
+    top: 50px;
+    opacity: 0;
     pointer-events: none;
-    transition: all .3s ease-out;
+    transition: all 1s ease-out;
+    filter: blur(15px);
     .tenlo{
       font-size: 32px;
       font-weight: 400;
@@ -624,8 +698,24 @@ body {
     width: 50%;
     display: flex;
     justify-content: center;
-    transition: all .3s ease-out;
+    filter: blur(15px);
+    margin-top: 70px;
+    transition: all 1s ease-out;
+    opacity: 0;
   }   
+
+  &.show{
+    .fourth-titles{
+      top: 0px;
+      filter: blur(0px);
+      opacity: 1;
+    }
+    .fourth-img{
+      margin-top: 0;
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
   @media (max-width: 1200px){
     .fourth-titles{
       left: 100px;
@@ -679,14 +769,14 @@ body {
 
 .fifth-home{
   width: 100%;
-  height: 365px;
+  height: 0;
   background-color: $secondary-color;
   display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
   overflow: hidden;
-  transition: all .3s ease-out;
+  transition: all 1.5s ease-out;
   .fifth-titles{
     color: $white-color;
     width: 70%;
@@ -731,6 +821,13 @@ body {
     transition: all .3s ease-out;
   }
 
+  &.show{
+    height: 365px;
+    @media (max-width: 900px) {
+      height: 800px;
+    }
+  }
+
   @media (max-width: 1200px){
     .fifth-titles{
       margin-left: 80px;
@@ -741,6 +838,15 @@ body {
             img{
               transform: scale(0.7);
             }
+            @keyframes moveWiggler {
+              0%,100%{
+                transform: translateX(-5px);
+              }
+              50%{
+                transform: translateX(5px);
+              }
+            }
+
           }
           div{
             font-size: 16px;
@@ -751,7 +857,7 @@ body {
   }
   @media (max-width: 900px){
     flex-direction: column;
-    height: 800px;
+    height: 0;
     .fifth-titles{
       width: 100%;
       height: fit-content;
@@ -795,7 +901,8 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  transition: all .3s ease-out;
+  opacity: 0;
+  transition: all 1.2s ease-out;
   .sixth-img{
     display: block;
     position: relative;
@@ -842,6 +949,9 @@ body {
         background-color: #1de9c7;
       }
     }
+  }
+  &.show{
+    opacity: 1;
   }
   @media (max-width: 1200px) {
     .sixth-img{
@@ -896,6 +1006,8 @@ body {
   flex-direction: row;
   align-items: center;
   overflow: hidden;
+  opacity: 0;
+  transition: all 1s ease-out;
   .seventh-titles{
     width: 50%;
     height: 200px;
@@ -975,6 +1087,10 @@ body {
       right: -10px;
       transition: all .3s ease-out;
     }
+  }
+
+  &.show{
+    opacity: 1;
   }
   @media (max-width: 1200px) {
     .seventh-titles{
@@ -1087,7 +1203,7 @@ body {
     flex-direction: row;
     margin: 50px 180px 20px 180px;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     gap: 1rem;
     .sf-logo{
       display: flex;
@@ -1149,7 +1265,7 @@ body {
   .author-rights{
     font-weight: 100;
     color: $white-color;
-    text-align: end;
+    text-align: flex-end;
     margin: 0 50px;
   }
 }
@@ -1195,7 +1311,7 @@ body {
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     h3{
       margin: 0;
       font-size: 48px;
@@ -1212,7 +1328,7 @@ body {
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     gap: 1rem;
     span{
       font-size: 24px;
@@ -1230,7 +1346,7 @@ body {
         outline: none;
         border: none;
         background-color: $grey-color;
-        text-align: end;
+        text-align: flex-end;
         font-size: 24px;
         font-weight: 400;
         width: 90%;
@@ -1261,7 +1377,7 @@ body {
     h3{
       font-size: 24px;
       font-weight: 700;
-      text-align: start;
+      text-align: flex-start;
       margin: 0;
     }
     div{
@@ -1290,7 +1406,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    align-items: end;
+    align-items: flex-end;
     width: 50%;
     h5{
       margin: 0;
@@ -1327,7 +1443,7 @@ body {
         height: 19px;
         padding: 15px;
         font-size: 24px;
-        text-align: end;
+        text-align: flex-end;
         border-radius: 50px 0 0 50px;
         &::-webkit-inner-spin-button,
         &::-webkit-outer-spin-button {
@@ -1357,7 +1473,7 @@ body {
       color: $white-color;
       font-size: 24px; 
       font-weight: 400;
-      text-align: start;
+      text-align: flex-start;
       span{
         font-weight: 700;
       }
@@ -1365,7 +1481,7 @@ body {
   }
   .profits{
     margin-right: 180px;
-    text-align: end;
+    text-align: flex-end;
     h1{
       margin: 0;
       font-size: 36px;
@@ -1465,7 +1581,7 @@ body {
     
     border-bottom: 1px solid $primary-color;
     div{
-      text-align: start;
+      text-align: flex-start;
       width: 100px;
       font-weight: 400;
       font-size: 16px;
@@ -1583,7 +1699,7 @@ body {
         flex-direction: row;
         gap: 1rem;
         align-items: center;
-        justify-content: start;
+        justify-content: flex-start;
         span{
           font-size: 16px;
           font-weight: 700;
@@ -1632,7 +1748,7 @@ body {
       flex-direction: row;
       align-items: center;
       input{
-        text-align: end;
+        text-align: flex-end;
         font-size: 36px;
         font-weight: 700;
         width: 150px;
@@ -1690,6 +1806,7 @@ body {
 
 .underline {
   position: relative;
+  z-index: 100;
   &:before {
     content: '';
     position: absolute;
@@ -1742,7 +1859,7 @@ body {
         .contact, 
         .links, 
         .social{
-          justify-content: start;
+          justify-content: flex-start;
         }        
         .social div{
           display: flex;
@@ -1751,7 +1868,7 @@ body {
         }        
       }
       .author-rights{
-        text-align: start;
+        text-align: flex-start;
         padding: 0 30px;
         margin: 0;
       }
@@ -1769,7 +1886,7 @@ body {
   } 
 
   .nav-sanfra-warp{
-    text-align: end;
+    text-align: flex-end;
   }
 
   .nav-menu{
@@ -1799,9 +1916,9 @@ body {
         margin: 30px 0 30px 0;
         padding: 10px 40px 10px 40px;
         gap: 1rem;   
-        align-items: start;          
+        align-items: flex-start;          
         .social{
-          justify-content: end;
+          justify-content: flex-end;
         }        
       }
       .author-rights{

@@ -53,7 +53,27 @@ const Nav = () => {
                 <Image className={isActive?"navs-ico pointer":"navs-ico pointer closed"} src={navsIco} width={21} height={39} alt="Menú" onClick={()=>setActive(!isActive)}/>
             </div>
             <div className="nav-sanfra-warp">
-                <span className="underline pointer" onClick={()=>activateNav(0, '/login')}>SANFRA WEB</span>
+                <span className="underline pointer" onClick={()=>activateNav(0, '/login')}>
+                    SANFRA WEB
+                </span>
+                <div className="nav-onHover">
+                    <div className="onHover-warp">
+                        <a href="https://sanfraweb.csf.ec/Identity/Account/Login" target="_blank">
+                            <div className="onhover-option">
+                                <span>
+                                        Personas
+                                </span>
+                            </div>
+                        </a>
+                        <a href="https://sanfraempresas.csf.ec" target="_blank">
+                            <div className="onhover-option">
+                                <span>
+                                    Empresas
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>        
     </nav>

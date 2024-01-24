@@ -1,6 +1,7 @@
-import Nav from '@components/Nav'
-import Footer from '@components/Footer'
-import '@styles/globals.scss'
+
+import Footer from '@public/components/Footer'
+import Nav from '@public/components/Nav'
+import '@public/styles/globals.scss'
 
 export const metadata = {
   title: "San Francisco",
