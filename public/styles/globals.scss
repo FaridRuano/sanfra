@@ -16,6 +16,7 @@ body {
 
 a{
   text-decoration: none;
+  color: $secondary-color;
 }
 
 
@@ -160,6 +161,9 @@ a{
   height: 750px;
   padding: 0;
   position: relative;
+  opacity: 0;
+  transition: all .8s ease-out;
+
   @media (max-width: 900px){
     overflow: hidden;
     height: 850px;
@@ -248,11 +252,13 @@ a{
     top: 0;
     right: 0;
     z-index: -1;
+    
     .dcard{
       position: absolute;
       left: 172px;
       transition: .3s ease-out;
-      
+      transform: translateX(500px);
+      transition: 1.2s ease-out;
       @media (min-width: 1120px) {
         left: 260px;
       }
@@ -265,8 +271,8 @@ a{
       position: relative;
       z-index: -2;
       left: 0px;
-      transition: .3s ease-out;
-  
+      transition: .8s ease-out;
+      transform: translateX(250px);
       @media (max-width: 1119px) {
         left: 250px;
       }
@@ -294,8 +300,34 @@ a{
       .dcard{
         position: absolute;
         left: 39%;
-        transform: scale(0.8);
+        transform: scale(0.8) translate(-500px);
   
+      }
+    }
+  }
+  &.show{
+    opacity: 1;
+    .main-3dcard{
+      .dcard{
+        transform: translateX(0);
+        
+      }
+      .dbg{
+        transform: translateX(0);
+      }
+      @media (max-width: 600px){
+        top: 230px;
+        .dbg{
+          scale: 1.2;
+          top: -150px;
+          left: 650px;
+        }
+        .dcard{
+          position: absolute;
+          left: 39%;
+          transform: scale(0.8) translate(0);
+    
+        }
       }
     }
   }
@@ -1240,7 +1272,7 @@ a{
           font-weight: 400;
           transition: .3s ease-out;
           &:hover{
-            font-weight: 700;
+            filter: drop-shadow(0 0 5px $white-color);
           }
         }
       }

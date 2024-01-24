@@ -26,6 +26,10 @@ const obvLong = new IntersectionObserver((entries) => {
     rootMargin: '-50% 0px', // Adjust the margins to reduce detection range
 });
 
+const mainSec = document.getElementById('mp-main')
+
+obv.observe(mainSec)
+
 const secondSec = document.getElementById('mp-second')
 
 obv.observe(secondSec)

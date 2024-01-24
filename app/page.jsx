@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image"
 import debitCard from "@public/images/3d-card.png"
 import cardBg from "@public/images/3d-card-bg.svg"
@@ -24,20 +26,25 @@ import SecreSmiling from "@public/images/secre-smiling.png"
 import EducateLogo  from "@public/icons/educate-logo.png"
 import SecreBG from "@public/images/secre-bg.png"
 import Script from 'next/script'
+import { useRouter } from "next/navigation";
 
 const Home = () => {
+    const router = useRouter()
+
   return (
     <>
         <Script src="/utils/scroll-section.js"/>
-        <section className="main-home">
+        <section className="main-home" id="mp-main">
             <div className="main-titles">
                 <span className="title-01">#TenloTodo</span>
                 <span className="title-02">Con la <span>NUEVA</span></span>
                 <span className="title-03">SANFRA <span>DEBIT.</span></span>
                 <div className="titles-btns">
-                    <span className="tit-btn pointer">
-                        Abre tu cuenta
-                    </span>
+                    <a href="https://online.coac-sanfra.com/cuentafacil/1" target="_blank">
+                        <span className="tit-btn pointer">
+                            Abre tu cuenta
+                        </span>
+                    </a>
                     <span className="tit-btn pointer">
                         Pídela hoy!
                     </span>
