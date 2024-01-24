@@ -2,6 +2,7 @@
 import Footer from '@public/components/Footer'
 import Nav from '@public/components/Nav'
 import '@public/styles/globals.scss'
+import Script from 'next/script'
 
 export const metadata = {
   title: "San Francisco",
@@ -16,6 +17,7 @@ const RootLayout = ({children}) => {
   return (
     <html lang='en'>      
       <body>
+        <Script src="/utils/scroll-section.js"/>
         <div className='main'>
           <main className='app'>
             <Nav/>

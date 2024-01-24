@@ -1225,82 +1225,91 @@ a{
 
 .footer {
   background-color: #000000;
+  .footer-warp{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    transition: 1s ease-out;
+    filter: blur(15px);
+    .footer-titles{
+      display: flex;
+      flex-direction: row;
+      margin: 50px 180px 20px 180px;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      .sf-logo{
+        display: flex;
+        justify-content: center;        
+        align-items: center;
+        margin: 0;
+        img{
+          cursor: pointer;
+        }
+      }
+      .contact{
+        display: flex;
+        justify-content: center;
+        pointer-events: none;
+        div{
+          p{
+            color: $white-color;
+            font-size: 16px;
+            font-weight: 400;
+            span{
+              font-weight: 700;
+            }
+          }
+        }
+      }
+      .links{
+        display: flex;
+        justify-content: center;
+        color: $white-color;
+        div{
+          p{
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 400;
+            transition: .3s ease-out;
+            &:hover{
+              filter: drop-shadow(0 0 5px $white-color);
+            }
+          }
+        }
+      }
+      .social{
+        display: flex;
+        justify-content: center;
+        div{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 0.5rem;
+          .ico{
+            transition: .3s ease-out;
+            cursor: pointer;
+            &:hover{
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+    }
+    .author-rights{
+      font-weight: 100;
+      color: $white-color;
+      text-align: flex-end;
+      margin: 0 50px;
+    }
+  }
+  &.show{
+    .footer-warp{
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
 }
 
-.footer-warp{
-  display: flex;
-  flex-direction: column;
-  .footer-titles{
-    display: flex;
-    flex-direction: row;
-    margin: 50px 180px 20px 180px;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    .sf-logo{
-      display: flex;
-      justify-content: center;        
-      align-items: center;
-      margin: 0;
-      img{
-        cursor: pointer;
-      }
-    }
-    .contact{
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-      div{
-        p{
-          color: $white-color;
-          font-size: 16px;
-          font-weight: 400;
-          span{
-            font-weight: 700;
-          }
-        }
-      }
-    }
-    .links{
-      display: flex;
-      justify-content: center;
-      color: $white-color;
-      div{
-        p{
-          cursor: pointer;
-          font-size: 16px;
-          font-weight: 400;
-          transition: .3s ease-out;
-          &:hover{
-            filter: drop-shadow(0 0 5px $white-color);
-          }
-        }
-      }
-    }
-    .social{
-      display: flex;
-      justify-content: center;
-      div{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 0.5rem;
-        .ico{
-          transition: .3s ease-out;
-          cursor: pointer;
-          &:hover{
-            transform: scale(1.2);
-          }
-        }
-      }
-    }
-  }
-  .author-rights{
-    font-weight: 100;
-    color: $white-color;
-    text-align: flex-end;
-    margin: 0 50px;
-  }
-}
 
 /* PRODUCTS PAGE */
 

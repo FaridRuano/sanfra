@@ -9,9 +9,9 @@ const obv = new IntersectionObserver((entries) => {
         }
     })
 },{
-    root: null, // Use the viewport as the root
-    rootMargin: '-30% 0px', // Adjust the margins to reduce detection range
-});
+    root: null,
+    rootMargin: '-30% 0px',
+})
 
 const obvLong = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -22,9 +22,9 @@ const obvLong = new IntersectionObserver((entries) => {
         }
     })
 },{
-    root: null, // Use the viewport as the root
-    rootMargin: '-50% 0px', // Adjust the margins to reduce detection range
-});
+    root: null, 
+    rootMargin: '-50% 0px', 
+})
 
 const mainSec = document.getElementById('mp-main')
 
@@ -55,7 +55,24 @@ const seventSec = document.getElementById('mp-seventh')
 obv.observe(seventSec)
 
 
+/* FOOTER */
 
+const obvSmall = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show')
+            entry.target.classList.remove('hidden')
+
+        }
+    })
+},{
+    root: null, 
+    rootMargin: '-5% 0px', 
+});
+
+const footer = document.getElementById('footer')
+
+obvSmall.observe(footer)
 
 
 

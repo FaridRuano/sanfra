@@ -25,7 +25,6 @@ import PronoPhone from "@public/images/prono-phone.png"
 import SecreSmiling from "@public/images/secre-smiling.png"
 import EducateLogo  from "@public/icons/educate-logo.png"
 import SecreBG from "@public/images/secre-bg.png"
-import Script from 'next/script'
 import { useRouter } from "next/navigation";
 
 const Home = () => {
@@ -33,7 +32,6 @@ const Home = () => {
 
   return (
     <>
-        <Script src="/utils/scroll-section.js"/>
         <section className="main-home" id="mp-main">
             <div className="main-titles">
                 <span className="title-01">#TenloTodo</span>
