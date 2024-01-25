@@ -1221,6 +1221,82 @@ a{
   }
 }
 
+/* US */
+
+.main-us{
+  height: 300px;
+  overflow: hidden;
+  animation: scaleUp 6s forwards;
+  transition: .3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1{
+    position: absolute;
+    color: $white-color;
+    z-index: 12;
+    animation: apper 6s forwards;
+    @keyframes apper {
+      0%,50%{
+        opacity: 0;  
+      }
+      100%{
+        opacity: 1;
+      }
+    }
+  }
+  .vid-container{
+    h1{
+      animation: apper 2s forwards;
+      @keyframes apper {
+        0%{
+          opacity: 0;  
+        }
+        100%{
+          opacity: 1;
+        }
+      }
+    }
+    .cl-player{
+      position: relative;
+      animation: clVid 6s forwards;
+      @keyframes clVid {
+        0%{
+          top: 0;
+        }
+        50%{
+          top: 0;
+        }
+        100%{
+          top: -150px;
+        }
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    animation: none;
+    height: fit-content;
+    .vid-container{
+      .cl-player{
+        top: 0;
+        animation: none;
+      }
+    }
+  }
+  @keyframes scaleUp {
+    0%{
+      height: 300px;
+    }
+    50%{
+      height: 765px;
+
+    }
+    100%{
+      height: 300px;
+    }
+  }
+}
+
 /* FOOTER */
 
 .footer {
@@ -1866,6 +1942,72 @@ a{
       transform-origin: bottom left;
     }
   }
+}
+
+.vid-container{
+  position: relative;
+  width: auto;
+  height: 100%;
+  .mute-toggle{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: $white-color;
+    z-index: 11;
+    cursor: pointer;
+  }
+  .vid-overlay{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0;
+    z-index: 10;
+    transition: 1s ease-out;
+  }
+  &.focus{
+    .vid-overlay{
+      opacity: 1;
+    }
+  }
+}
+
+.cl-player{
+  width: 100%;
+  height: auto;                                           
+  padding-top: 0 !important;      
+  z-index: -1;  
+  video{
+      padding-top: 0;                            
+      width: 100%;
+      height: auto;
+      overflow-clip-margin: initial;
+      overflow: hidden;
+      pointer-events: none;
+  }
+}
+
+.vjs-poster,
+.vjs-title-bar,
+.vjs-text-track-display,
+.vjs-title-bar,
+.vjs-recomentations-overlay,
+.vjs-upcoming-video,
+.vjs-loading-spinner,
+.vjs-error-display{
+    display: none;
+}
+
+.player-profile-video-dimensions,
+.player-BG-EXPERIENCE-dimensions,
+.vjs-fluid:not,
+.vjs-fluid,
+.vjs-fluid:not(.vjs-audio-only-mode),
+.resume-dimensions{
+    padding-top: 0;
 }
 
 /* ANIMATIONS */
