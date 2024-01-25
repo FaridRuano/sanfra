@@ -2,7 +2,7 @@
 import Footer from '@public/components/Footer'
 import Nav from '@public/components/Nav'
 import '@public/styles/globals.scss'
-import Script from 'next/script'
+import Script from "next/script"
 
 export const metadata = {
   title: "San Francisco",
