@@ -4,7 +4,6 @@ import fbLogo from "@public/icons/fb-ico.png"
 import igLogo from "@public/icons/ig-ico.png"
 import ytLogo from "@public/icons/yt-ico.png"
 import tkLogo from "@public/icons/tk-ico.png"
-import Link from 'next/link';
 
 const Footer = () => {
 
