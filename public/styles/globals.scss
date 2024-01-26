@@ -2028,6 +2028,7 @@ a{
   align-items: center;
   animation: titleInit 1.3s forwards .3s;
   transition: 1s ease-out;
+  opacity: 0;
   h1{
     margin: 0;
     padding: 0;
@@ -2295,6 +2296,13 @@ a{
   }
   @media (max-width:1000px) {
     padding: 44px 50px 144px 50px;
+  }
+  @media (max-width: 600px) {
+    .title-warp{
+      h1{
+        font-size: 22px;
+      }
+    }
   }
 }
 

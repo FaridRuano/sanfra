@@ -51,21 +51,22 @@ const Products = () => {
           titleWarp.classList.remove('hide')
         }
       }
-
-      if (scrollTop >= scrollThreshold - 350) {
-        title1.classList.add('fixed')
-      } else {
-        title1.classList.remove('fixed')
-      }
-      if (scrollTop >= scrollThreshold + 350 ) {
-        title2.classList.add('fixed')
-      } else {
-        title2.classList.remove('fixed')
-      }
-      if (scrollTop >= scrollThreshold + 700 ) {
-        title3.classList.add('fixed')
-      } else {
-        title3.classList.remove('fixed')
+      if(title1 && title2 && title3){
+        if (scrollTop >= scrollThreshold - 350) {
+          title1.classList.add('fixed')
+        } else {
+          title1.classList.remove('fixed')
+        }
+        if (scrollTop >= scrollThreshold + 350 ) {
+          title2.classList.add('fixed')
+        } else {
+          title2.classList.remove('fixed')
+        }
+        if (scrollTop >= scrollThreshold + 700 ) {
+          title3.classList.add('fixed')
+        } else {
+          title3.classList.remove('fixed')
+        }
       }
     })
 
