@@ -1,9 +1,10 @@
 'use client'
-import { headers } from '@next.config';
 import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 import Script from 'next/script';
-import { useEffect, useState } from 'react';
-import { Award, BarChart, Check, Slack, TrendingUp, Volume2, VolumeX } from 'react-feather';
+import { useEffect } from 'react';
+import { Award, BarChart, Check, Slack, TrendingUp } from 'react-feather';
+import sfLogo from '@public/icons/sanfra-logo.png'
+import Image from "next/image"
 
 const AboutUs = () => {
   
@@ -68,6 +69,14 @@ const AboutUs = () => {
     const differentTit = document.getElementById('different-tit')
 
     obvLong.observe(differentTit)
+
+    const fifthSec = document.getElementById('fifth-sec')
+
+    obvLong.observe(fifthSec)
+
+    const sixthSec = document.getElementById('sixth-sec')
+
+    obvLong.observe(sixthSec)
 
   },[])
   return (
@@ -341,6 +350,235 @@ const AboutUs = () => {
             <span>
               Compromiso
             </span>
+          </div>
+        </div>
+      </section>
+      <section className="fifth-us" id="fifth-sec">
+        <div className='logo-warp'>
+          <Image src={sfLogo} width={'auto'} heigth={'auto'} alt="Sanfra Logo"/>
+        </div>
+        <h1>
+          Somos un Equipo
+        </h1>
+        <div className="row-warp">
+          <h1>
+            Gerente General
+          </h1>
+          <h2>
+            Estuardo Riquelmen Parede López
+          </h2>
+        </div>
+        <h2>
+          Consejo de Administración
+        </h2>
+        <div className="row-warp">
+          <h1>
+            Presidente
+          </h1>
+          <h2>
+            Cristina Proaño
+          </h2>
+        </div>
+        <div className="row-warp">
+          <h1>
+            VicePresidente
+          </h1>
+          <h2>
+            María Aguinda
+          </h2>
+        </div>
+        <div className="row-warp">
+          <h1>
+            Secretario
+          </h1>
+          <h2>
+            Guido Sánchez
+          </h2>
+        </div>
+        <div className="row-warp">
+          <h1>
+            Principal
+          </h1>
+          <h2>
+            Marisol Arias
+          </h2>
+        </div>
+        <div className="row-warp alone">
+          <h2>
+            Walter Villacrés
+          </h2>
+        </div>
+        <div className="row-warp alone">
+          <h2>
+            Jesenia Escalante
+          </h2>
+        </div>
+        <div className="row-warp alone">
+          <h2>
+            Vinicio Freire
+          </h2>
+        </div>
+        <div className="row-warp alone">
+          <h2>
+            Daniela López
+          </h2>
+        </div>
+        <div className="row-warp alone">
+          <h2>
+            Orlando Bimbosa
+          </h2>
+        </div>
+        <h2>
+          Consejo de Vigilancia
+        </h2>
+        <div className="row-warp">
+          <h1>
+            Presidente
+          </h1>
+          <h2>
+            Catalina Puente
+          </h2>
+        </div>
+        <div className="row-warp">
+          <h1>
+            Secretario
+          </h1>
+          <h2>
+            José Salazar
+          </h2>
+        </div>
+        <div className="row-warp">
+          <h1>
+            Vocal
+          </h1>
+          <h2>
+            Martiza Casco
+          </h2>
+        </div>
+        <div className="row-warp alone">
+          <h2>
+            Mónica Estupiñan
+          </h2>
+        </div>
+        <div className="row-warp alone">
+          <h2>
+            Diana Robles
+          </h2>
+        </div>
+      </section>
+      <section className="sixth-us" id="sixth-sec">
+        <h1>
+          Transparencia de la información
+        </h1>
+        <p>
+          Sanfra en números
+        </p>
+      </section>
+      <section className="seventh-us">
+        <h1>
+          Transparencia de la información
+        </h1>
+        <div className="span-warp">
+          <div className="col">
+            <a>
+              Patrimonio Técnico
+            </a>
+            <a>
+              Balance Social
+            </a>
+            <a>
+              Calificación de Riesgos
+            </a>
+          </div>
+          <div className="col">
+            <a>
+              Historial de Balances
+            </a>
+            <a>
+              Balance General
+            </a>
+            <a>
+              Estados Financieros
+            </a>
+          </div>
+          <div className="col">
+            <a>
+              Indicadores Financieros
+            </a>
+            <a>
+              Equidad de Género
+            </a>
+            <a>
+              SARAS
+            </a>
+          </div>
+        </div>
+        <h1>
+          Costos por Servicios
+        </h1>
+        <div className="span-warp">
+          <div className="col">
+            <a>
+              Costos de Servicios
+            </a>
+          </div>
+          <div className="col">
+            <a>
+              Tasas vigentes, Costos Financieros y Operativos
+            </a>
+          </div>
+        </div>
+        <h1>
+          Buen Gobierno
+        </h1>
+        <div className="span-warp">
+          <div className="col">
+            <a>
+              Misión, Visión y Objetivos
+            </a>
+            <a>
+              Estatutos
+            </a>
+            <a>
+              Distribución de Exedentes
+            </a>
+            <a>
+              Comites y Comisiones
+            </a>
+            <a>
+              Contratos
+            </a>
+          </div>
+          <div className="col">
+            <a>
+              Código de Ética y Comportamiento
+            </a>
+            <a>
+              Reglamento de Elecciones
+            </a>
+            <a>
+              Socios
+            </a>
+            <a>
+              Empleados
+            </a>
+            <a>
+              Política Ambiental
+            </a>
+          </div>
+          <div className="col">
+            <a>
+              Asamblea General
+            </a>
+            <a>
+              Administración y Vigilancia
+            </a>
+            <a>
+              Gerencias y Jefaturas
+            </a>
+            <a>
+              Quejas y Reclamos
+            </a>
           </div>
         </div>
       </section>
