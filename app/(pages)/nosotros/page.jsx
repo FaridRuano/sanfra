@@ -3,7 +3,7 @@ import { headers } from '@next.config';
 import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import { Volume2, VolumeX } from 'react-feather';
+import { Award, BarChart, Check, Slack, TrendingUp, Volume2, VolumeX } from 'react-feather';
 
 const AboutUs = () => {
   
@@ -46,6 +46,29 @@ const AboutUs = () => {
     // Listen for window resize events to update the class
     window.addEventListener('resize', handleViewportWidth);
 
+    const obvLong = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+          if(entry.isIntersecting){
+              entry.target.classList.add('show')
+          }
+      })
+    },{
+        root: null, 
+        rootMargin: '-40% 0px', 
+    })
+
+    const razonTit = document.getElementById('razon-tit')
+
+    obvLong.observe(razonTit)
+
+    const visionTit = document.getElementById('vision-tit')
+
+    obvLong.observe(visionTit)
+
+    const differentTit = document.getElementById('different-tit')
+
+    obvLong.observe(differentTit)
+
   },[])
   return (
     <> 
@@ -70,7 +93,9 @@ const AboutUs = () => {
           <div className="timeline-side">
             <div className="time-event">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <BarChart className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <p>
@@ -88,7 +113,9 @@ const AboutUs = () => {
             </div>
             <div className="time-event">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <Award className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <p>
@@ -107,7 +134,9 @@ const AboutUs = () => {
           <div className="timeline-side">
             <div className="time-event down">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <Slack className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <h1>
@@ -124,7 +153,9 @@ const AboutUs = () => {
             </div>
             <div className="time-event down">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <TrendingUp className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <h1>
@@ -142,7 +173,9 @@ const AboutUs = () => {
             </div>
             <div className="time-event down">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <Check className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <h1>
@@ -163,7 +196,9 @@ const AboutUs = () => {
           <div className="timeline-side">
             <div className="time-event down">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <Slack className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <h1>
@@ -180,7 +215,9 @@ const AboutUs = () => {
             </div>
             <div className="time-event down">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <BarChart className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <h1>
@@ -198,7 +235,9 @@ const AboutUs = () => {
             </div>
             <div className="time-event down">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <TrendingUp className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <h1>
@@ -216,7 +255,9 @@ const AboutUs = () => {
             </div>
             <div className="time-event down">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <Award className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <h1>
@@ -233,7 +274,9 @@ const AboutUs = () => {
             </div>
             <div className="time-event down">
               <div className="img-container">
-                <div className='holder'/>
+                <div className='holder'>
+                  <Check className='icon'/>
+                </div>
               </div>
               <div className="text-container">
                 <h1>
@@ -251,7 +294,56 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-      <div style={{height: '1000px'}}/>
+      <section className="third-us">
+        <div className="text-warp" id="razon-tit">
+          <h1>
+            Nuestra razón de ser
+          </h1>
+          <p>
+            Somos una empresa cimentada en principios cooperativos,
+            orientada a ofrecer servicios financieros, ejecutados con
+            calidad para contribuir al bienestar de nuestros socios,
+            clientes y la sociedad.
+          </p>
+        </div>
+        <div className="text-warp" id="vision-tit">
+          <h1>
+            Visión estratégica
+          </h1>
+          <p>
+            Ser el mejor aliado de nuestros socios generando soluciones
+            financieras integrales de calidad basadas en prácticas éticas,
+            transparentes y rentables.
+          </p>
+        </div>
+      </section>
+      <section className="fourth-us" id="different-tit">
+        <div className="text-warp">
+          <h1>
+            Lo que nos hace diferentes
+          </h1>
+          <div className="span-warp">
+            <span>
+              Responsabilidad Social
+            </span>
+            <span>
+              Ética
+            </span>
+            <span>
+              Confianza
+            </span>
+            <span>
+              Transparencia
+            </span>
+            <span>
+              Amabilidad
+            </span>
+            <span>
+              Compromiso
+            </span>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
