@@ -35,7 +35,7 @@ const Products = () => {
       if (window.innerWidth <= 1000) {
         scrollThreshold = 1644; 
         if (window.innerWidth <= 600) {
-          scrollThreshold = 1724;  
+          scrollThreshold = 1734;  
         }
       }
       if(titleWarp){
