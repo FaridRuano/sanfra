@@ -1820,6 +1820,8 @@ a{
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  opacity: 0;
+  filter: blur(15px);
   transition: 1s ease-out;
   h1{
     font-size: 32px;
@@ -1846,6 +1848,13 @@ a{
       }
     }
   }
+  &.show{
+    opacity: 1;
+    filter: blur(0);
+  }
+  @media (max-width: 1000px) {
+    padding: 144px 40px;
+  }
   @media (max-width: 600px) {
     padding: 144px 50px;
     .span-warp{
@@ -1860,6 +1869,8 @@ a{
     }
   }
 }
+
+
 
 /* FOOTER */
 

@@ -78,6 +78,10 @@ const AboutUs = () => {
 
     obvLong.observe(sixthSec)
 
+    const seventhSec = document.getElementById('seventh-sec')
+
+    obvLong.observe(seventhSec)
+
   },[])
   return (
     <> 
@@ -474,7 +478,7 @@ const AboutUs = () => {
           Sanfra en números
         </p>
       </section>
-      <section className="seventh-us">
+      <section className="seventh-us" id="seventh-sec">
         <h1>
           Transparencia de la información
         </h1>
