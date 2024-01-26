@@ -1918,13 +1918,18 @@ a{
         justify-content: center;
         color: $white-color;
         div{
-          p{
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          a{
             cursor: pointer;
             font-size: 16px;
             font-weight: 400;
             transition: .3s ease-out;
+            color: $white-color;
             &:hover{
               filter: drop-shadow(0 0 5px $white-color);
+              transform: scale(1.02);
             }
           }
         }

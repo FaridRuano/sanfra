@@ -484,13 +484,13 @@ const AboutUs = () => {
         </h1>
         <div className="span-warp">
           <div className="col">
-            <a>
+            <a href="/docs/Patrimonio_Tecnico.pdf" target='_blank'>
               Patrimonio Técnico
             </a>
-            <a>
+            <a href="/docs/Balance_Social.pdf" target='_blank'>
               Balance Social
             </a>
-            <a>
+            <a href="/docs/Calificacion_Riesgos.pdf" target='_blank'>
               Calificación de Riesgos
             </a>
           </div>
@@ -498,21 +498,21 @@ const AboutUs = () => {
             <a>
               Historial de Balances
             </a>
-            <a>
+            <a href="/docs/Balance_General.pdf" target='_blank'>
               Balance General
             </a>
-            <a>
+            <a href="/docs/Estados_Financieros.pdf" target='_blank'>
               Estados Financieros
             </a>
           </div>
           <div className="col">
-            <a>
+            <a href="/docs/Indicadores_Financieros.pdf" target='_blank'>
               Indicadores Financieros
             </a>
-            <a>
+            <a href="/docs/Equidad_Genero.pdf" target='_blank'>
               Equidad de Género
             </a>
-            <a>
+            <a href="/docs/Politicas_Ambientales.pdf" target='_blank'>
               SARAS
             </a>
           </div>
@@ -522,12 +522,12 @@ const AboutUs = () => {
         </h1>
         <div className="span-warp">
           <div className="col">
-            <a>
+            <a href="/docs/Costos_Servicios.pdf" target='_blank'>
               Costos de Servicios
             </a>
           </div>
           <div className="col">
-            <a>
+            <a href="/docs/Tasas_Vigentes.pdf" target='_blank'>
               Tasas vigentes, Costos Financieros y Operativos
             </a>
           </div>
@@ -537,16 +537,16 @@ const AboutUs = () => {
         </h1>
         <div className="span-warp">
           <div className="col">
-            <a>
+            <a href="/docs/Mision_Vision.pdf" target='_blank'>
               Misión, Visión y Objetivos
             </a>
-            <a>
+            <a href="/docs/Estatutos.pdf" target='_blank'>
               Estatutos
             </a>
-            <a>
+            <a href="/docs/Distribucion_Exedentes.pdf" target='_blank'>
               Distribución de Exedentes
             </a>
-            <a>
+            <a href="/docs/Comites_Comisiones.pdf" target='_blank'>
               Comites y Comisiones
             </a>
             <a>
@@ -554,33 +554,33 @@ const AboutUs = () => {
             </a>
           </div>
           <div className="col">
-            <a>
+            <a href="/docs/Código_Etica.pdf" target='_blank'>
               Código de Ética y Comportamiento
             </a>
-            <a>
+            <a href="/docs/Reglamento_Normativa.pdf" target='_blank'>
               Reglamento de Elecciones
             </a>
-            <a>
+            <a href="/docs/Socios.pdf" target='_blank'>
               Socios
             </a>
-            <a>
+            <a href="/docs/Empleados.pdf" target='_blank'>
               Empleados
             </a>
-            <a>
+            <a href="/docs/Politica_Ambiental.pdf" target='_blank'>
               Política Ambiental
             </a>
           </div>
           <div className="col">
-            <a>
+            <a href="/docs/Asamblea.pdf" target='_blank'>
               Asamblea General
             </a>
-            <a>
+            <a href="/docs/Consejos.pdf" target='_blank'>
               Administración y Vigilancia
             </a>
-            <a>
+            <a href="/docs/Gerencias_Jefaturas.pdf" target='_blank'>
               Gerencias y Jefaturas
             </a>
-            <a>
+            <a href="/docs/Quejas_Reclamos.pdf" target='_blank'>
               Quejas y Reclamos
             </a>
           </div>
