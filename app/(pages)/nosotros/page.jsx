@@ -31,13 +31,14 @@ const AboutUs = () => {
       var phone = document.getElementById('timeline-phone');
       var web = document.getElementById('timeline-web');
 
-
-      if (window.innerWidth <= 700) { // You can adjust the threshold (480 in this example) based on your needs
-        phone.classList.remove('hidden');
-        web.classList.add('hidden')
-      } else {
-        web.classList.remove('hidden');
-        phone.classList.add('hidden')
+      if(phone && web){
+        if (window.innerWidth <= 700) { // You can adjust the threshold (480 in this example) based on your needs
+          phone.classList.remove('hidden');
+          web.classList.add('hidden')
+        } else {
+          web.classList.remove('hidden');
+          phone.classList.add('hidden')
+        }
       }
     }
 
