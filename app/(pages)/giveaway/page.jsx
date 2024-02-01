@@ -4,6 +4,7 @@ import Papa from 'papaparse'
 import SanFra from '@public/icons/sanfrancisco.png'
 import Image from 'next/image'
 import FileDropZone from '@public/components/giveaway/FileDropZone'
+import NamesAnim from '@public/components/giveaway/NamesAnim'
 
 const GiveAway = () => {
     const [data, setData] = useState([])
@@ -110,6 +111,9 @@ const GiveAway = () => {
                 <div className={isSpinning?'spin-anim active':'spin-anim'}>
                     <span>{countdown}</span>
                 </div>
+                <div className='names-gi'>
+                    <NamesAnim data={data} isActive={isSpinning}/>
+                </div>
               </section>
           </>
         )
@@ -117,7 +121,11 @@ const GiveAway = () => {
     else{
         return(
             <>
-                <FileDropZone onFileChange={handleFileChange}/>
+                <section className='file-gi'>
+                    <div className='zone-holder'>
+                        <FileDropZone onFileChange={handleFileChange}/>
+                    </div>
+                </section>
             </>
         )
     }

@@ -16,20 +16,17 @@ const FileDropZone = ({ onFileChange }) => {
     <div
       {...getRootProps()}
       style={{
-        border: '2px dashed #ddd',
-        borderRadius: '4px',
         padding: '20px',
         textAlign: 'center',
         cursor: 'pointer',
-        background: isDragActive ? '#eee' : '#fff',
       }}
       className='dropzone'
     >
       <input {...getInputProps()} />
       {isDragActive ? (
-        <p>AQUIIiii CHUGCHA</p>
+        <p>Aqui</p>
       ) : (
-        <p>Tira aqui el archivo .csv</p>
+        <p>Tira aquí el archivo .csv</p>
       )}
     </div>
   );

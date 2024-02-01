@@ -2435,6 +2435,7 @@ a{
       position: absolute;
       font-size: 82px;
       animation: numIn 1.5s infinite ease-out;
+      filter: drop-shadow(5px 5px 15px #0000002c);
       @keyframes numIn {
         0%{
           opacity: 0;
@@ -2490,6 +2491,14 @@ a{
       }
     }
   }
+  @media (max-width:1000px) {
+    .gi-title{
+      margin: 50px 0;
+      h1{
+        font-size: 42px;
+      }
+    }
+  }
 }
 
 .winner-gi{
@@ -2507,6 +2516,7 @@ a{
     margin: 0;
     padding: 0;
     h2{
+      text-align: center;
       font-weight: 500;
       margin: 0;
       padding: 0;
@@ -2517,6 +2527,7 @@ a{
     font-size: 32px;
     animation: winnerIn 1s forwards ease-out;
     h1{
+      text-align: center;
       margin: 20px 0;
       padding: 0;
     }
@@ -2558,6 +2569,41 @@ a{
       100%{
         opacity: 1;
         filter: blur(0);
+      }
+    }
+  }
+}
+
+.file-gi{
+  height: 80vh;
+  width: 100%;
+  background-color: $primary-color;
+  padding: 5%;
+  .zone-holder{
+    width: calc(100% - 10%);
+    height: calc(100% - 10%);
+  }
+}
+
+.names-gi{
+  position: absolute;
+}
+
+.names-anim{
+  span{
+    color: $white-color;
+    animation: blurIn 3s forwards;
+    font-size: 30px;
+    @keyframes blurIn {
+      0%{
+        opacity: 0;
+        filter: blur(15px);
+        transform: scale(1);
+      }
+      100%{
+        opacity: 0.8;
+        filter: blur(2px);
+        transform: scale(3);
       }
     }
   }
@@ -3053,6 +3099,25 @@ a{
 }
 
 /* DROPZONE */
+
+.dropzone{
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s ease-out;
+  border: 2px dashed #ddd;
+  border-radius: 25px;
+
+  p{
+    color: $white-color;
+    font-size: 24px;
+  }
+  &:hover{
+    background-color: rgba($color: #ffffff, $alpha: 0.1);
+  }
+}
 
 /* COMMON CLASSES */
 
