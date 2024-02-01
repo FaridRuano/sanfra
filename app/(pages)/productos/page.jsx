@@ -2,6 +2,11 @@
 import Image from "next/image"
 import SaveAcc from '@public/images/save-account.jpg'
 import { useEffect } from "react"
+import Title1 from "@public/images/saving-p1.jpg"
+import Title2 from "@public/images/saving-p2.jpg"
+import Title3 from "@public/images/saving-p3.jpg"
+
+
 
 
 const Products = () => {
@@ -167,6 +172,21 @@ const Products = () => {
             <p>
               Sea cual sea tu meta, planifícala desde HOY.
             </p>
+            <div className="images">
+              <div id="img-title1" className="tit-image">
+                <Image src={Title1} width={'250'} height={'auto'} alt="Plan Futuro"/>
+              </div>
+            </div>
+            <div className="images">
+              <div id="img-title2" className="tit-image">
+                <Image src={Title2} width={'250'} height={'auto'} alt="Plan Futuro"/>
+              </div>
+            </div>
+            <div className="images">
+              <div id="img-title3" className="tit-image">
+                <Image src={Title3} width={'350'} height={'auto'} alt="Plan Futuro"/>
+              </div>
+            </div>
           </div>
           <div className="titles" id="title2">
             <h1>

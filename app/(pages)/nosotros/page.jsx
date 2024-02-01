@@ -529,7 +529,8 @@ const AboutUs = () => {
           </div>
           <div className="col">
             <a href="/docs/Tasas_Vigentes.pdf" target='_blank'>
-              Tasas vigentes, Costos Financieros y Operativos
+              Tasas vigentes, Costos Financieros 
+              <br/>y Operativos
             </a>
           </div>
         </div>
