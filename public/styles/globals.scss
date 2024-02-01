@@ -2493,7 +2493,7 @@ a{
   }
   @media (max-width:1000px) {
     .gi-title{
-      margin: 50px 0;
+      margin: 50px 20px;
       h1{
         font-size: 42px;
       }
@@ -2572,6 +2572,13 @@ a{
       }
     }
   }
+  @media (max-width: 1000px) {
+    .winner-name{
+      margin: 50px 0;
+      font-size: 20px;
+    }
+    
+  }
 }
 
 .file-gi{
@@ -2590,22 +2597,29 @@ a{
 }
 
 .names-anim{
+  display: flex;
+  align-items: center;
   span{
     color: $white-color;
     animation: blurIn 3s forwards;
     font-size: 30px;
+    text-align: center;
     @keyframes blurIn {
       0%{
         opacity: 0;
         filter: blur(15px);
-        transform: scale(1);
       }
       100%{
         opacity: 0.8;
         filter: blur(2px);
-        transform: scale(3);
       }
     }
+  }
+  @media (max-width: 1000px) {
+      span{
+        text-align: center;
+        font-size: 24px;
+      }
   }
 }
 
