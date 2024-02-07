@@ -2398,6 +2398,7 @@ a{
   display: flex;
   flex-direction: row;
   height: 400px;
+  animation: crediIn 2s forwards;
   .titles{
     width: 50%;
     display: flex;
@@ -2467,14 +2468,56 @@ a{
       }
     }
   }
+  @keyframes crediIn {
+    0%{
+      opacity: 0;
+      filter: blur(15px);
+    }
+    100%{
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
   @media (max-width: 1440px) {
     padding: 144px;
   }
   @media (max-width: 1000px) {
     padding: 144px 44px;
+    .titles{
+      h1{
+        font-size: 30px;
+      }
+    }
+    .link-cre{
+      a{
+        div{
+          font-size: 20px;
+        }
+      }
+    }
   }
   @media (max-width: 700px){
+    flex-direction: column;
     padding: 144px 44px;
+    gap: 5rem;
+    height: 600px;
+    .titles{
+      width: 100%;
+      h1{
+        text-align: center;
+        font-size: 32px;
+      }
+      .credit-warp{
+        align-items: center;
+        .credit{
+          margin-left: 0;
+        }
+      }
+    }
+    .link-cre{
+      width: 100%;
+      align-items: center;
+    }
   }
 }
 
