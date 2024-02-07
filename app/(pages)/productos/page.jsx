@@ -5,6 +5,13 @@ import { useEffect } from "react"
 import Title1 from "@public/images/saving-p1.jpg"
 import Title2 from "@public/images/saving-p2.jpg"
 import Title3 from "@public/images/saving-p3.jpg"
+import Title4 from "@public/images/saving2-p1.png"
+import Title5 from "@public/images/saving2-p2.png"
+import Title6 from "@public/images/saving2-p3.png"
+import Title7 from "@public/images/saving3-p1.png"
+import Title8 from "@public/images/saving3-p2.png"
+import Title9 from "@public/images/saving3-p3.png"
+import { Circle } from "react-feather"
 
 
 
@@ -38,7 +45,7 @@ const Products = () => {
       let scrollThreshold = 1320
 
       if (window.innerWidth <= 1000) {
-        scrollThreshold = 1644; 
+        scrollThreshold = 1578; 
         if (window.innerWidth <= 600) {
           scrollThreshold = 1734;  
         }
@@ -62,12 +69,12 @@ const Products = () => {
         } else {
           title1.classList.remove('fixed')
         }
-        if (scrollTop >= scrollThreshold + 350 ) {
+        if (scrollTop >= scrollThreshold + 150 ) {
           title2.classList.add('fixed')
         } else {
           title2.classList.remove('fixed')
         }
-        if (scrollTop >= scrollThreshold + 700 ) {
+        if (scrollTop >= scrollThreshold + 450 ) {
           title3.classList.add('fixed')
         } else {
           title3.classList.remove('fixed')
@@ -172,19 +179,43 @@ const Products = () => {
             <p>
               Sea cual sea tu meta, planifícala desde HOY.
             </p>
+            <h5>
+              Beneficios
+            </h5>
+            <p>
+              Tasa preferencial de acuerdo al plazo pactado.
+              <br/>
+              Cooperativa en Línea.
+              <br/>
+              Realiza tus depósitos por:
+            </p>
+            <ul>
+              <li>
+                Ventanilla
+              </li>
+              <li>
+                Transferencia interbancaria
+              </li>
+              <li>
+                Débito automático de tu cuenta de ahorros
+              </li>
+            </ul>
+            <p>
+              Renovación automática del convenio al finalizar el plazo.
+            </p>
             <div className="images">
               <div id="img-title1" className="tit-image">
-                <Image src={Title1} width={'250'} height={'auto'} alt="Plan Futuro"/>
+                <Image src={Title4} width={'200'} height={'auto'} alt="Plan Futuro"/>
               </div>
             </div>
             <div className="images">
               <div id="img-title2" className="tit-image">
-                <Image src={Title2} width={'250'} height={'auto'} alt="Plan Futuro"/>
+                <Image src={Title5} width={'180'} height={'auto'} alt="Plan Futuro"/>
               </div>
             </div>
             <div className="images">
               <div id="img-title3" className="tit-image">
-                <Image src={Title3} width={'350'} height={'auto'} alt="Plan Futuro"/>
+                <Image src={Title6} width={'180'} height={'auto'} alt="Plan Futuro"/>
               </div>
             </div>
           </div>
@@ -195,6 +226,49 @@ const Products = () => {
             <p>
               Sea cual sea tu meta, planifícala desde HOY.
             </p>
+            <h5>
+              Beneficios
+            </h5>
+            <p>
+              Disponibilidad de tus ahorros acumulados cuando los necesites.
+              <br/>
+              Cooperativa en Línea.
+              <br/>
+              Débitos automáticos de tu cuenta de ahorros.
+              <br/>
+              Cuota mínima mensual de $30 dólares.
+            </p>
+            <h6>
+              Retiros
+            </h6>
+            <ul>
+              <li>
+                Décimo cuarto: en agosto (región sierra) o marzo (región costa) 
+                y puedes retirar hasta un salario básico.
+              </li>
+              <li>
+                Décimo tercero: en diciembre puedes retirar hasta el total 
+                ahorrado.
+              </li>
+            </ul>
+            <p>
+              Renovación automática del convenio al finalizar el plazo.
+            </p>
+            <div className="images">
+              <div id="img-title4" className="tit-image">
+                <Image src={Title1} width={'250'} height={'auto'} alt="Plan Decimos"/>
+              </div>
+            </div>
+            <div className="images">
+              <div id="img-title5" className="tit-image">
+                <Image src={Title2} width={'250'} height={'auto'} alt="Plan Decimos"/>
+              </div>
+            </div>
+            <div className="images">
+              <div id="img-title6" className="tit-image">
+                <Image src={Title3} width={'350'} height={'auto'} alt="Plan Decimos" />
+              </div>
+            </div>
           </div>
           <div className="titles" id="title3">
             <h1>
@@ -203,6 +277,45 @@ const Products = () => {
             <p>
               Su futuro empieza HOY.
             </p>
+            <h5>
+              Beneficios
+            </h5>
+            <p>
+              Tasa preferencial de acuerdo al plazo pactado.
+              <br/>
+              Cooperativa en Línea.
+              <br/>
+              Realiza tus depósitos por:
+            </p>
+            <ul>
+              <li>
+                Ventanilla
+              </li>
+              <li>
+                Transferencia interbancaria
+              </li>
+              <li>
+                Débito automático de tu cuenta de ahorros
+              </li>
+            </ul>
+            <p>
+              Renovación automática del convenio al finalizar el plazo.
+            </p>
+            <div className="images">
+              <div id="img-title7" className="tit-image">
+                <Image src={Title7} width={'150'} height={'auto'} alt="Plan Decimos"/>
+              </div>
+            </div>
+            <div className="images">
+              <div id="img-title8" className="tit-image">
+                <Image src={Title8} width={'170'} height={'auto'} alt="Plan Decimos"/>
+              </div>
+            </div>
+            <div className="images">
+              <div id="img-title9" className="tit-image">
+                <Image src={Title9} width={'200'} height={'auto'} alt="Plan Decimos" />
+              </div>
+            </div>
           </div>
         </div>
       </section>   
