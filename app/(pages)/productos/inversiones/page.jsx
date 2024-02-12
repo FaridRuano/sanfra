@@ -2,6 +2,10 @@
 
 import { useEffect, useState } from "react"
 import { NumericFormat } from "react-number-format"
+import { Calendar, DollarSign, DownloadCloud, File, Lock, Tablet, TrendingUp } from "react-feather"
+import { CldVideoPlayer } from 'next-cloudinary'
+import PhoneFrame from '@public/images/phone-anim-lastframe.jpg'
+import Image from "next/image"
 
 const Invest = () => {
   const [invest, setInvest] = useState('')
@@ -10,6 +14,8 @@ const Invest = () => {
   const [value, setValue] = useState(6)
   const [inQuant, setInQuant] = useState(0)
   const rate = 9.5
+
+  const [videoLoaded, setVideoLoaded] = useState(false)
 
   const getProfit=()=>{
     let profit = parseFloat(invest)
@@ -44,6 +50,31 @@ const Invest = () => {
     }
     return rate
   }
+
+  const handleLoadedVideo = () => {
+    setVideoLoaded(true)
+  }
+
+  useEffect(()=>{
+    const obvShort = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+          if(entry.isIntersecting){
+              entry.target.classList.add('show')
+          }
+      })
+    },{
+        root: null, 
+        rootMargin: '-20% 0px', 
+    })
+
+    const textDiv = document.querySelectorAll('.text')
+    const headerDiv = document.querySelectorAll('.header')
+
+
+    textDiv.forEach((el) => obvShort.observe(el))
+    headerDiv.forEach((el) => obvShort.observe(el))
+
+  },[])
 
   return (
     <>
@@ -140,8 +171,9 @@ const Invest = () => {
             </div>
           </div>
         </div>
-        {value && invest > 0 && (
-          <div className="profit">
+        <div className="profit">
+        {value > 0 && invest > 0 && (
+          <>
             <div className="titles">
               <h2>
                 En {value} {timeVal === 1 ? (<span>Meses</span>):(<span>Dias</span>)} recibiras
@@ -153,8 +185,136 @@ const Invest = () => {
               </h1>
               <span>Con una tasa del <span>{getRate()}%</span></span>
             </div>
-          </div>          
+          </>
         )}
+        </div>          
+      </section>
+      <section className="phone-invest">
+        <div className="header">
+          <div className="icon">
+            <Tablet/>
+          </div>
+          <h1>
+            Inversión Digital
+          </h1>
+        </div>
+        <div className="description">
+          <p>
+            Invierte desde  <span className="bold">cualquier lugar</span> con la <span className="bold primary">Sanfra Móvil 2.0.</span>
+          </p>
+        </div>
+        <div className="phone-anim">
+          <div className={videoLoaded?"video-holder":"video-holder off"}>
+            <CldVideoPlayer className='cl-player' id='rewind-vid' src='sanfra/pr/in/phoneInAnim' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={false} onDataLoad={handleLoadedVideo}/>
+          </div>
+          <div className="text-holder">
+            <div className="char">
+              <div className="icon">
+                <DollarSign/>
+              </div>
+              <div className="text">
+                <h1>
+                  Desde $300
+                </h1>
+              </div>
+            </div>
+            <div className="char">
+              <div className="icon">
+                <Calendar/>
+              </div>
+              <div className="text">
+                <h1>
+                  Pago al Final
+                </h1>
+              </div>
+            </div>
+            <div className="char">
+              <div className="icon">
+                <DollarSign/>
+              </div>
+              <div className="text">
+                <h1>
+                  Inversión Segura
+                </h1>
+              </div>
+            </div>
+            <div className="info">
+              <File/>
+              <a href="/docs/Manual_InversionesDigitales.pdf" target='_blank'>
+                Mira el instructivo aquí.
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="invest-info">
+        <div className="header">
+          <div className="icon">
+            <TrendingUp/>
+          </div>
+          <h1>
+            Conoce más
+          </h1>
+        </div>
+        <div className="info">
+          <div className="text">
+            <h3>
+              Beneficios
+            </h3>
+            <ul>
+              <li>
+                Calificación de riesgo AA.
+              </li>
+              <li>
+                Respaldo y seguridad de tu dinero.
+              </li>
+              <li>
+                Seguro de Depósitos COSEDE.
+              </li>
+              <li>
+                Máxima rentabilidad de acuerdo al plazo establecido.
+              </li>
+              <li>
+                Atención personalizada.
+              </li>
+              <li>
+                Plazo desde 31 días en adelante.
+              </li>
+              <li>
+                Canalizamos tu inversión en efectivo, cheque o mediante transferencias Interbancarias.
+              </li>
+              <li>
+                Pago de interés periódico o al vencimiento.
+              </li>
+            </ul>
+          </div>
+          <div className="text">
+            <h3>
+              Requisitos
+            </h3>
+            <ul>
+              <li>
+                Copia de cédula de identidad.
+              </li>
+              <li>
+                Recibo de pago de un servicio básico (agua, luz, teléfono).
+              </li>
+              <li>
+                Depósito inicial.
+              </li>
+              Persona Jurídica:
+              <li>
+                RUC (Registro Único De Contribuyentes)
+              </li>
+              <li>
+                Acta de constitución o estatuto
+              </li>
+              <li>
+                Copia certificada del nombramiento de representante legal.
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </>
   )
