@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from "react"
 import { NumericFormat } from "react-number-format"
-import { Calendar, DollarSign, DownloadCloud, File, Lock, Tablet, TrendingUp } from "react-feather"
+import { Calendar, DollarSign, DownloadCloud, File, Info, Lock, Tablet, TrendingUp } from "react-feather"
 import { CldVideoPlayer } from 'next-cloudinary'
-import PhoneFrame from '@public/images/phone-anim-lastframe.jpg'
-import Image from "next/image"
+
 
 const Invest = () => {
   const [invest, setInvest] = useState('')
@@ -16,6 +15,7 @@ const Invest = () => {
   const rate = 9.5
 
   const [videoLoaded, setVideoLoaded] = useState(false)
+  const [play, setPlay] = useState(false)
 
   const getProfit=()=>{
     let profit = parseFloat(invest)
@@ -74,6 +74,20 @@ const Invest = () => {
     textDiv.forEach((el) => obvShort.observe(el))
     headerDiv.forEach((el) => obvShort.observe(el))
 
+    window.addEventListener('scroll', function() {
+      let phoneVid = document.getElementById('phone-anim-vid')
+      let phoneHol = document.getElementById('phone-anim-hol')
+
+      let scrollTop = window.scrollY
+      
+      if(phoneVid && phoneHol){
+        if(scrollTop >= 800) {
+            phoneHol.classList.remove('off')
+            console.log(phoneVid)
+            phoneVid.setAttribute('autoplay', 'true'); 
+        }
+      }
+    })
   },[])
 
   return (
@@ -204,9 +218,9 @@ const Invest = () => {
           </p>
         </div>
         <div className="phone-anim">
-          <div className={videoLoaded?"video-holder":"video-holder off"}>
-            <CldVideoPlayer className='cl-player' id='rewind-vid' src='sanfra/pr/in/phoneInAnim' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={false} onDataLoad={handleLoadedVideo}/>
-          </div>
+          <div className="video-holder off" id="phone-anim-hol">
+            <CldVideoPlayer className='cl-player-in' id='phone-anim-vid' src='sanfra/pr/in/phoneInAnim' controlBar={false} bigPlayButton={false} muted={true}  autoplay={true}/>
+          </div> 
           <div className="text-holder">
             <div className="char">
               <div className="icon">
@@ -239,8 +253,8 @@ const Invest = () => {
               </div>
             </div>
             <div className="info">
-              <File/>
               <a href="/docs/Manual_InversionesDigitales.pdf" target='_blank'>
+              <File/>
                 Mira el instructivo aquí.
               </a>
             </div>
@@ -250,7 +264,7 @@ const Invest = () => {
       <section className="invest-info">
         <div className="header">
           <div className="icon">
-            <TrendingUp/>
+            <Info/>
           </div>
           <h1>
             Conoce más
