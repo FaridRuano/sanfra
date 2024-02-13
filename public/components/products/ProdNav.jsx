@@ -32,6 +32,7 @@ const ProdNav = () => {
             setActive(4);
             break;
           default:
+            localStorage.removeItem("activeMenu")
             setActive(1);
             break;
         }

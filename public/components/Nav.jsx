@@ -37,7 +37,9 @@ const Nav = () => {
                     <span className={classMenu(1)} onClick={()=>activateNav(1, '/nosotros')}>
                         Nosotros
                     </span>
-                    <span className={classMenu(2)} onClick={()=>activateNav(2, '/productos')}>
+                    <span className={classMenu(2)} onClick={()=>{activateNav(2, '/productos')
+                    localStorage.setItem("activeMenu", '1')
+                }}>
                         Productos
                     </span>
                     <span className={classMenu(3)} onClick={()=>activateNav(3, '/servicios')}>
