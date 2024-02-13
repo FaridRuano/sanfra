@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { NumericFormat } from "react-number-format"
 import { Calendar, DollarSign, DownloadCloud, File, Info, Lock, Tablet, TrendingUp } from "react-feather"
 import { CldVideoPlayer } from 'next-cloudinary'
@@ -13,9 +13,6 @@ const Invest = () => {
   const [value, setValue] = useState(6)
   const [inQuant, setInQuant] = useState(0)
   const rate = 9.5
-
-  const [videoLoaded, setVideoLoaded] = useState(false)
-  const [play, setPlay] = useState(false)
 
   const getProfit=()=>{
     let profit = parseFloat(invest)
@@ -51,9 +48,15 @@ const Invest = () => {
     return rate
   }
 
-  const handleLoadedVideo = () => {
-    setVideoLoaded(true)
+  const playerRef = useRef(null)
+
+  // Function to play the video
+  const playVideo = () => {
+    if (playerRef.current) {
+      playerRef.current.play()
+    }
   }
+
 
   useEffect(()=>{
     const obvShort = new IntersectionObserver((entries) => {
@@ -219,10 +222,10 @@ const Invest = () => {
         </div>
         <div className="phone-anim">
           <div className="video-holder off" id="phone-anim-hol">
-            <CldVideoPlayer className='cl-player-in' id='phone-anim-vid' src='sanfra/pr/in/phoneInAnim' controlBar={false} bigPlayButton={false} muted={true}  autoplay={true}/>
+            <CldVideoPlayer className='cl-player-in' ref={playerRef} id='phone-anim-vid' src='sanfra/pr/in/phoneInAnim' controlBar={false} bigPlayButton={false} muted={true} autoplay/>
           </div> 
           <div className="text-holder">
-            <div className="char">
+            <div className="char" onClick={playVideo}>
               <div className="icon">
                 <DollarSign/>
               </div>
