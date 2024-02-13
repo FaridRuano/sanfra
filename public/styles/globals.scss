@@ -2836,6 +2836,21 @@ a{
       &.off{
         opacity: 0;
       }
+      .cl-player-in{
+        width: 100%;
+        height: auto;                                           
+        padding-top: 0 !important;      
+        z-index: -1;  
+        pointer-events: none;
+        video{
+            padding-top: 0;                            
+            width: 100%;
+            height: auto;
+            overflow-clip-margin: initial;
+            overflow: hidden;
+            pointer-events: none;
+        }
+      }
     }
     .text-holder{
       position: absolute;

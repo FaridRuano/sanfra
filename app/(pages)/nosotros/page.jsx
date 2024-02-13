@@ -92,7 +92,7 @@ const AboutUs = () => {
           Familia San Francisco
         </h1>
         <div className='vid-container' id="us-vid">
-          <CldVideoPlayer className='cl-player' id='rewind-vid' src='sanfra/us/REWINDSANFRA2023' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>
+          <CldVideoPlayer className='cl-player-in' id='rewind-vid' src='sanfra/us/REWINDSANFRA2023' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>
           <div className='vid-overlay'/>
         </div>
       </section>
