@@ -2823,6 +2823,7 @@ a{
   }
   .phone-anim{
     animation: fadeInAnim 1s forwards;
+    position: relative;
     .video-holder{
       position: absolute;
       top: 0;
