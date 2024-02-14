@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const ProdNav = () => {
   const router = useRouter()
 
-  const [active, setActive] = useState(parseInt(localStorage.getItem("activeMenu")) || 1)
+  const [active, setActive] = useState(1)
 
   const activateNav = (menu, link) => {
     setActive(menu)
@@ -20,37 +20,48 @@ const ProdNav = () => {
       if (currentPath.startsWith("/productos/")) {
         switch (currentPath) {
           case "/productos/":
-            setActive(1);
+            setActive(1)
             break;
           case "/productos/credito":
-            setActive(2);
+            setActive(2)
             break;
           case "/productos/inversiones":
-            setActive(3);
+            setActive(3)
             break;
           case "/productos/tarjetas":
-            setActive(4);
+            setActive(4)
             break;
           default:
             localStorage.removeItem("activeMenu")
-            setActive(1);
+            setActive(1)
             break;
         }
       }
-    };
+    }
   
     // Check if router.events is defined before using it
     if (router && router.events) {
-      router.events.on("routeChangeComplete", handleRouteChange);
+      router.events.on("routeChangeComplete", handleRouteChange)
   
       // Set initial active state
-      handleRouteChange();
+      handleRouteChange()
   
       return () => {
-        router.events.off("routeChangeComplete", handleRouteChange);
-      };
+        router.events.off("routeChangeComplete", handleRouteChange)
+      }
     }
-  }, [router]);
+  }, [router])
+
+  useEffect(() => {
+    try {
+      const storedActiveMenu = localStorage.getItem("activeMenu")
+      if (storedActiveMenu) {
+        setActive(parseInt(storedActiveMenu))
+      }
+    } catch (error) {
+      console.error("Error accessing localStorage:", error)
+    }
+  }, [])
   
 
   return (
