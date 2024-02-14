@@ -72,10 +72,16 @@ const Invest = () => {
 
     const textDiv = document.querySelectorAll('.text')
     const headerDiv = document.querySelectorAll('.header')
+    const charDiv = document.querySelectorAll('.char')
+    const descrip = document.querySelectorAll('.description')
+    const info = document.querySelectorAll('.info')
 
 
     textDiv.forEach((el) => obvShort.observe(el))
     headerDiv.forEach((el) => obvShort.observe(el))
+    charDiv.forEach((el) => obvShort.observe(el))
+    descrip.forEach((el) => obvShort.observe(el))
+    info.forEach((el) => obvShort.observe(el))
 
     window.addEventListener('scroll', function() {
       let phoneVid = document.getElementById('phone-anim-vid')
