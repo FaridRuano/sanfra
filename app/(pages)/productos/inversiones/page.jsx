@@ -86,8 +86,6 @@ const Invest = () => {
       if(phoneVid && phoneHol){
         if(scrollTop >= 800) {
             phoneHol.classList.remove('off')
-            console.log(phoneVid)
-            phoneVid.setAttribute('autoplay', 'true'); 
         }
       }
     })
