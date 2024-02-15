@@ -3020,6 +3020,73 @@ a{
   }
 }
 
+/* Cards */
+.main-ta{
+  height: 1500px;
+  background-color: $secondary-color;
+  position: relative;
+}
+
+.card-frsd{
+  position: fixed;
+  top: 50%;
+  right: -30%;
+  animation: cardIn 1.5s forwards;
+  opacity: 1;
+  z-index: 1;
+  @keyframes cardIn {
+    0%{
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      filter: blur(15px);
+    }
+    100%{
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+  &.zoom{
+    position: absolute;
+    animation: none;
+    top: 78%;
+    right: -30%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  &.default{
+    animation: none;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  @media (max-width: 700px) {
+    top: 500px;
+    right: -500px;
+    @keyframes cardIn {
+      0%{
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        filter: blur(15px);
+      }
+      100%{
+        transform: translate(-50%, -50%) scale(0.65);
+        opacity: 1;
+        filter: blur(0px);
+      }
+    }
+    &.zoom{
+      position: absolute;
+      top: 1200px;
+      right: -366px;
+    }
+  }
+}
+
+
+
+.second-ta{
+  height: 1500px;
+}
+
 /* GIVEAWAY */
 
 .main-gi{
