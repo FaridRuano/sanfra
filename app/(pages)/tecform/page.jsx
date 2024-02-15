@@ -45,10 +45,21 @@ const TecForm = () => {
                     </div>
                     <div className="tec-input">
                         <select>
-                            <option>Selecciona</option>
+                            <option>Provincia</option>
                             <option>Azuay</option>
                         </select>
                     </div>
+                    <div className="tec-input">
+                        <select>
+                            <option>Cantón</option>
+                            <option>Azuay</option>
+                        </select>
+                    </div>
+                    <div className="tec-checkbox">
+                        <input type='checkbox'/>
+                        <span>Acepto los <a>términos y condiciones</a></span>
+                    </div>
+                    <button className="tec-btn">Enviar</button>
                 </div>
             </div>
         </section>
