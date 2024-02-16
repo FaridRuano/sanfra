@@ -342,14 +342,16 @@ const TecForm = () => {
 
     const sendData = () => {
         setDataSent(true)
-        setCed('')
-        setName('')
-        setLast('')
-        setPhone('')
-        setEmail('')
-        setAccepted(false)
-        setProvince(0)
-        setCity(0)
+        setTimeout(() => {
+            setCed('')
+            setName('')
+            setLast('')
+            setPhone('')
+            setEmail('')
+            setAccepted(false)
+            setProvince(0)
+            setCity(0)
+        }, 1500)
         setTimeout(() => {
             setDataSent(false)
         }, 4000)
@@ -413,7 +415,7 @@ const TecForm = () => {
                         </select>
                     </div>
                     <div className="tec-checkbox">
-                        <input type='checkbox' value={accepted} onChange={()=>setAccepted(current => !current)}/>
+                        <input type='checkbox' checked={accepted} onChange={(e)=>setAccepted(e.target.value)}/>
                         <span>Acepto los <a href="/docs/Politica_Proteccion_Datos.pdf" target='_blank'>términos y condiciones</a></span>
                     </div>
                     <button className={sendable()?"tec-btn":"tec-btn disabled"} onClick={()=>sendData()}>Enviar</button>
