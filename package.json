@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-spring/parallax": "^9.7.3",
+    "mongoose": "^8.1.2",
     "next": "14.0.1",
     "next-cloudinary": "^5.20.0",
     "papaparse": "^5.4.1",

@@ -1,14 +1,64 @@
 'use client'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TecLogo from '@public/icons/tec-logo.png'
 import SanfraLogo from '@public/icons/sanfrancisco.png'
 import TecAsset1 from '@public/images/tec-asset1.png'
 import { data } from 'autoprefixer'
 
+const personData = async () =>{
+    try{
+      const res = await fetch('http://localhost:3000/api/person',{
+        method: "GET",
+        headers: {
+          "Content-Type":"application/json"
+        }
+      })
+  
+      if(!res.ok){
+        throw new Error("Failed")
+      }
+  
+      const ponse = await res.json()
+      return ponse.persons
+    }catch (error) {
+      console.log(error)
+    }
+}
+
+const postNewPerson = async (newPerson) => {
+    try {
+      const res = await fetch('http://localhost:3000/api/person', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newPerson),
+      });
+  
+      if (!res.ok) {
+        throw new Error('Failed to post new Person')
+      }
+  
+      // Optionally, you can handle the response after posting if needed
+      const postedFaculty = await res.json()
+      console.log('Posted person:', postedFaculty)
+  
+      // Fetch updated data after posting
+      const updatedData = await personData()
+      return updatedData
+    } catch (error) {
+      console.error('Error:', error)
+      throw error
+    }
+  }
 
 const TecForm = () => {
-    const [province, setProvince] = useState(0)
+
+    /* Persons */
+    const [personsData, setPersonsData] = useState([])
+
+    const [province, setProvince] = useState(23)
     const [city, setCity] = useState(0)
     const [filtered, setFiltered] = useState([])
     const [accepted, setAccepted] = useState(false)
@@ -349,13 +399,54 @@ const TecForm = () => {
             setPhone('')
             setEmail('')
             setAccepted(false)
-            setProvince(0)
+            setProvince(23)
             setCity(0)
+            handlePostPerson()
         }, 1500)
         setTimeout(() => {
             setDataSent(false)
         }, 4000)
     }
+
+    useEffect(()=>{
+        setFiltered(citiesFiltered(23))
+    },[])
+
+    useEffect(()=>{
+        const fetchAndLoadPersons= async () =>{
+            try{
+              const fetchData = await personData()
+              if(fetchData.length > 0){
+                setPersonsData(fetchData)
+              }
+            }catch (e){
+              console.log(e)
+            }
+        }
+        fetchAndLoadPersons()
+    },[])
+
+    const handlePostPerson = async () => {
+        let ct= cities.find((citi) => citi.id === parseInt(city))
+
+        const newPerson = {
+
+            ced: ced,
+            name: name,
+            last: last,
+            email: email,
+            phone: phone,
+            province: "Tungurahua",
+            city: ct.name
+        }
+    
+        try {
+          const updatedData = await postNewPerson(newPerson)
+          setPersonsData(updatedData)
+        } catch (error) {
+          console.error('Error posting new person:', error)
+        }
+      }
 
   return (
     <>
@@ -395,7 +486,7 @@ const TecForm = () => {
                         <input name='phone' type='text' placeholder='Teléfono' onChange={handlePhone} value={phone}/>
                     </div>
                     <div className="tec-input">
-                        <select onChange={handleProvince} value={province}>
+                        <select onChange={handleProvince} value={province} disabled>
                             <option value={0}>Provincia</option>
                             {
                                 provinces.map((prov, i)=>(
