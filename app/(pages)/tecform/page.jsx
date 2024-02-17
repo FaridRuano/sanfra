@@ -8,7 +8,7 @@ import { data } from 'autoprefixer'
 
 const personData = async () =>{
     try{
-      const res = await fetch('https://sanfra.vercel.app/api/person',{
+      const res = await fetch('https://san-fra.com/api/person',{
         method: "GET",
         headers: {
           "Content-Type":"application/json"
@@ -28,7 +28,7 @@ const personData = async () =>{
 
 const postNewPerson = async (newPerson) => {
     try {
-      const res = await fetch('https://sanfra.vercel.app/api/person', {
+      const res = await fetch('https://san-fra.com/api/person', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
