@@ -8,37 +8,39 @@ import { data } from 'autoprefixer'
 
 const personData = async () =>{
     try{
-      const res = await fetch('https://san-fra.com/api/person',{
-        method: "GET",
-        headers: {
-          "Content-Type":"application/json"
+        const uri = process.env.PUBLIC_URL;
+        const res = await fetch(`${uri}/api/person`,{
+            method: "GET",
+            headers: {
+            "Content-Type":"application/json"
+            }
+        })
+  
+        if(!res.ok){
+            throw new Error("Failed")
         }
-      })
   
-      if(!res.ok){
-        throw new Error("Failed")
-      }
-  
-      const ponse = await res.json()
-      return ponse.persons
+        const ponse = await res.json()
+        return ponse.persons
     }catch (error) {
-      console.log(error)
+        console.log(error)
     }
 }
 
 const postNewPerson = async (newPerson) => {
     try {
-      const res = await fetch('https://san-fra.com/api/person', {
+        const uri = process.env.PUBLIC_URL;
+        const res = await fetch(`${uri}/api/person`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newPerson),
-      });
-  
-      if (!res.ok) {
-        throw new Error('Failed to post new Person')
-      }
+            body: JSON.stringify(newPerson),
+        });
+    
+        if (!res.ok) {
+            throw new Error('Failed to post new Person')
+        }
   
       // Optionally, you can handle the response after posting if needed
       const postedFaculty = await res.json()
