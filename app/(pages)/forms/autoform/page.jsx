@@ -1,10 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import TecLogo from '@public/icons/tec-logo.png'
 import SanfraLogo from '@public/icons/sanfrancisco.png'
-import TecAsset1 from '@public/images/tec-asset1.png'
-import { data } from 'autoprefixer'
 
 const personData = async () =>{
     try{
@@ -43,8 +40,7 @@ const postNewPerson = async (newPerson) => {
         }
   
       // Optionally, you can handle the response after posting if needed
-      const postedFaculty = await res.json()
-      console.log('Posted person:', postedFaculty)
+      const postedPerson = await res.json()
   
       // Fetch updated data after posting
       const updatedData = await personData()
@@ -60,7 +56,7 @@ const TecForm = () => {
     /* Persons */
     const [personsData, setPersonsData] = useState([])
 
-    const [province, setProvince] = useState(23)
+    const [province, setProvince] = useState(0)
     const [city, setCity] = useState(0)
     const [filtered, setFiltered] = useState([])
     const [accepted, setAccepted] = useState(false)
@@ -430,6 +426,8 @@ const TecForm = () => {
 
     const handlePostPerson = async () => {
         let ct= cities.find((citi) => citi.id === parseInt(city))
+        let pr= provinces.find((citi) => citi.id === parseInt(province))
+
 
         const newPerson = {
 
@@ -438,7 +436,7 @@ const TecForm = () => {
             last: last,
             email: email,
             phone: phone,
-            province: "Tungurahua",
+            province: pr.name,
             city: ct.name
         }
     
@@ -452,13 +450,10 @@ const TecForm = () => {
 
   return (
     <>
-        <section className='main-tec'>
+        <section className='main-auto'>
             <div className="logo-wrap">
                 <div className="logo-holder">
                     <Image src={SanfraLogo} width={200} height={'auto'} alt='Sf logo'/>
-                </div>
-                <div className="logo-holder">
-                    <Image src={TecLogo} width={150} height={'auto'} alt='Tec-logo'/>
                 </div>
             </div>
             <div className="form-body">
@@ -469,7 +464,9 @@ const TecForm = () => {
                     <h2>
                         Y GANA
                     </h2>
-                    <Image src={TecAsset1} width={400} height={'auto'} alt='Tec Asset 1'/>
+                    <p>
+                        Participa por auto-gadgets, tapíceria, lavadas de auto y muchos premios más.
+                    </p>
                 </div>
                 <div className="body-inp">
                     <div className={ced.length===10 || ced===''?"tec-input":"tec-input error-msg"}>
@@ -488,7 +485,7 @@ const TecForm = () => {
                         <input name='phone' type='text' placeholder='Teléfono' onChange={handlePhone} value={phone}/>
                     </div>
                     <div className="tec-input">
-                        <select onChange={handleProvince} value={province} disabled>
+                        <select onChange={handleProvince} value={province}>
                             <option value={0}>Provincia</option>
                             {
                                 provinces.map((prov, i)=>(

@@ -8,7 +8,10 @@ $highlight-dark-color:#113877;
 $white-color: #fff;
 $grey-color: #D9D9D9;
 $grey-dark-color: #646464;
+$error-highlight:rgb(160, 9, 9);
 $tec-primary: #e22222;
+$auto-primary: #01f7c1;
+
 
 
 body {
@@ -3513,6 +3516,208 @@ a{
         &:hover{
           transform: scale(1.05);
           background-color: $tec-primary;
+        }
+        &.disabled{
+          opacity: 0.5;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  .done-tec{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    z-index: 5;
+    pointer-events: none;
+    transition: .5s ease-out;
+    text-align: center;
+    color: $white-color;
+    z-index: 6;
+    opacity: 0;
+    &.show{
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+  .overlay-tec{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    background-color: $secondary-color;
+    padding-bottom: 100px;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    transition: .5s ease-out;
+    &.show{
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+/* AUTO FORM */
+
+.main-auto{
+  height: fit-content;
+  background-image: url('/images/auto-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  .logo-wrap{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .logo-holder{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeInAnim 1s forwards;
+      img{
+        filter: invert(1);
+      }
+    }
+  }
+  .form-body{
+    height: fit-content;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    padding-bottom: 100px;
+    
+    .body-hd{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 200px;
+      position: relative;
+      animation: fadeInAnim 1s forwards;
+      animation-delay: 1s;
+      opacity: 0;
+      margin-bottom: 50px;
+      h1{
+        color: $white-color;
+        font-size: 32px;
+        padding: 0;
+        margin: 0;
+        z-index: 1;
+      }
+      h2{
+        color: $white-color;
+        font-size: 52px;
+        padding: 0;
+        margin: 0;
+        z-index: 1;
+      }
+      p{
+        color: white;
+        padding: 44px;
+        text-align: center;
+        font-weight: 300;
+      }
+      img{
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+      }
+    }
+    .body-inp{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex-direction: column;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeInAnim 1s forwards;
+      animation-delay: 2s;
+      .tec-input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #00000065;
+        padding: 15px 20px;
+        border-radius: 25px;
+        transition: .3s ease-out;
+        &:hover{
+          transform: scale(1.02);
+        }
+        input{
+          width: 300px;
+          height: 27px;
+          outline: none;
+          background-color: transparent;
+          border: none;
+          border-bottom: solid 1px $white-color;
+          font-size: 20px;
+          font-family: 'Montserrat';
+          color: $white-color;
+          &::placeholder{
+            color: #ffffff7c;
+          }
+        }
+        select{
+          width: 300px;
+          height: 27px;
+          outline: none;
+          background-color: transparent;
+          border: none;
+          border-bottom: solid 1px $white-color;
+          font-size: 20px;
+          font-family: 'Montserrat';
+          color: $white-color;
+          option{
+            color: $secondary-color;
+            background-color: transparent;
+          }
+        }
+        &.error-msg{
+          input{
+            border-bottom: solid 1px $error-highlight;
+          }
+        }
+      }
+      .tec-checkbox{
+        .checkbox{
+          padding: 5px;
+        }
+        span{
+          color: $white-color;
+          font-size: 16px;
+          text-align: center;
+          font-weight: 400;
+          a{
+            color: $auto-primary;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s ease-out;
+            &:hover{
+              filter: drop-shadow(0 0 5px $auto-primary);
+            }
+          }
+        }
+      }
+      .tec-btn{
+        padding: 10px 25px;
+        font-size: 20px;
+        color: $white-color;
+        border-radius: 25px;
+        outline: 0;
+        border: none;
+        background-color: transparent;
+        border: solid 1px $auto-primary;
+        font-family: 'Montserrat';
+        font-weight: 600;
+        cursor: pointer;
+        transition: .3s ease-out;
+        &:hover{
+          transform: scale(1.05);
+          background-color: $auto-primary;
         }
         &.disabled{
           opacity: 0.5;
