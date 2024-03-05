@@ -26,6 +26,11 @@ a{
   color: $secondary-color;
 }
 
+input, select {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
 .dev{
   padding-top: 100px;
@@ -3582,6 +3587,12 @@ a{
       justify-content: center;
       animation: fadeInAnim 1s forwards;      
       transform: scale(0.7);
+      @media (min-width:700px) {
+        transform: scale(1);
+      }
+    }
+    @media (min-width:700px) {
+      height: 600px;
     }
   }
   .form-header{
@@ -3607,6 +3618,9 @@ a{
         }
       }
     }
+    @media (min-width:700px) {
+      margin-top: 30px;
+    }
   }
   .descrip-hd{
     padding: 30px 0 20px 0;
@@ -3627,6 +3641,9 @@ a{
     overflow:hidden;
     position: relative;
     width: 960px;
+    @media (min-width:700px) {
+      width: 100%;
+    }
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3692,7 +3709,6 @@ a{
           outline: none;
           background-color: transparent;
           border: none;
-          border-bottom: solid 1px $white-color;
           font-size: 15px;
           font-family: 'Montserrat';
           color: $white-color;
@@ -3752,7 +3768,10 @@ a{
       background-size: cover;
       background-position: center;
       width: 100%;
-      height: 250px;
+      height: 210px;
+      @media (min-width:700px) {
+        height: 700px;
+      }
     }
   }
   .done-tec{
