@@ -3562,11 +3562,15 @@ a{
 
 .main-auto{
   height: fit-content;
-  background-image: url('/images/auto-bg.jpg');
+  position: relative;
+  background-image: url('/images/auto-blackbg.jpg');
   background-size: cover;
   background-position: center;
-  position: relative;
+  min-height: 100%;
   .logo-wrap{
+    background-image: url('/images/auto-bg.png');
+    background-size: cover;
+    background-position: center;
     width: 100%;
     height: 300px;
     display: flex;
@@ -3576,56 +3580,79 @@ a{
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: fadeInAnim 1s forwards;
-      img{
-        filter: invert(1);
-      }
+      animation: fadeInAnim 1s forwards;      
+      transform: scale(0.7);
     }
   }
-  .form-body{
-    height: fit-content;
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-    padding-bottom: 100px;
-    
-    .body-hd{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      height: 200px;
-      position: relative;
-      animation: fadeInAnim 1s forwards;
-      animation-delay: 1s;
-      opacity: 0;
-      margin-bottom: 50px;
+  .form-header{
+    position: relative;
+    .title-hd{
+      text-align: center;
+      font-size: 24px;
       h1{
         color: $white-color;
-        font-size: 32px;
         padding: 0;
         margin: 0;
-        z-index: 1;
       }
-      h2{
-        color: $white-color;
-        font-size: 52px;
-        padding: 0;
-        margin: 0;
-        z-index: 1;
-      }
-      p{
-        color: white;
-        padding: 44px;
-        text-align: center;
-        font-weight: 300;
-      }
-      img{
-        pointer-events: none;
+      &.bg{
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -55%);
+        margin-top: 5px;
+        transform: translate(-50%, -50%);
+        h1{
+          color: transparent;
+          -webkit-text-stroke: 0.1px $white-color;
+          opacity: 0.5;
+        }
       }
     }
+  }
+  .descrip-hd{
+    padding: 30px 0 20px 0;
+    text-align: center;
+    color: $white-color;
+    font-weight: 300;
+    font-size: 14px;
+    p{
+      span{
+        font-weight: 700;
+      }
+    }
+  }
+  
+  .slider {
+    background: white;
+    height: 80px;
+    overflow:hidden;
+    position: relative;
+    width: 960px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    .slider-track {
+      animation: scroll 10s linear infinite;
+      display: flex;
+      width: calc(250px * 8);
+    }
+    
+    .slide {
+      text-align: center;      
+      width: 250px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-250px * 4))}
+    }
+  }
+  
+  .form-body{
+    height: fit-content;
+    padding-bottom: 100px;
+    padding-top: 50px;
     .body-inp{
       display: flex;
       align-items: center;
@@ -3636,25 +3663,24 @@ a{
       opacity: 0;
       animation: fadeInAnim 1s forwards;
       animation-delay: 2s;
-      .tec-input{
+      .auto-input{
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #00000065;
-        padding: 15px 20px;
-        border-radius: 25px;
+        background-color: transparent;
+        border: solid 1px $white-color;
+        padding: 12px 17px;
         transition: .3s ease-out;
         &:hover{
           transform: scale(1.02);
         }
         input{
-          width: 300px;
-          height: 27px;
+          width: 270px;
+          height: 18px;
           outline: none;
           background-color: transparent;
           border: none;
-          border-bottom: solid 1px $white-color;
-          font-size: 20px;
+          font-size: 15px;
           font-family: 'Montserrat';
           color: $white-color;
           &::placeholder{
@@ -3662,13 +3688,13 @@ a{
           }
         }
         select{
-          width: 300px;
-          height: 27px;
+          width: 270px;
+          height: 18px;
           outline: none;
           background-color: transparent;
           border: none;
           border-bottom: solid 1px $white-color;
-          font-size: 20px;
+          font-size: 15px;
           font-family: 'Montserrat';
           color: $white-color;
           option{
@@ -3677,9 +3703,7 @@ a{
           }
         }
         &.error-msg{
-          input{
-            border-bottom: solid 1px $error-highlight;
-          }
+          border: solid 1px $error-highlight;
         }
       }
       .tec-checkbox{
@@ -3688,7 +3712,7 @@ a{
         }
         span{
           color: $white-color;
-          font-size: 16px;
+          font-size: 15px;
           text-align: center;
           font-weight: 400;
           a{
@@ -3704,9 +3728,8 @@ a{
       }
       .tec-btn{
         padding: 10px 25px;
-        font-size: 20px;
+        font-size: 15px;
         color: $white-color;
-        border-radius: 25px;
         outline: 0;
         border: none;
         background-color: transparent;
@@ -3725,9 +3748,16 @@ a{
         }
       }
     }
+    .auto-footer{
+      background-image: url('/images/auto-footer.png');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 250px;
+    }
   }
   .done-tec{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -150%);
@@ -3744,7 +3774,7 @@ a{
     }
   }
   .overlay-tec{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -150%);

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import SanfraLogo from '@public/icons/sanfrancisco.png'
 
+
 const personData = async () =>{
     try{
         const uri = process.env.PUBLIC_URL;
@@ -397,7 +398,7 @@ const TecForm = () => {
             setPhone('')
             setEmail('')
             setAccepted(false)
-            setProvince(23)
+            setProvince(0)
             setCity(0)
             handlePostPerson()
         }, 1500)
@@ -456,35 +457,73 @@ const TecForm = () => {
                     <Image src={SanfraLogo} width={200} height={'auto'} alt='Sf logo'/>
                 </div>
             </div>
-            <div className="form-body">
-                <div className="body-hd">
+            <div className="form-header">
+                <div className="title-hd">
                     <h1>
                         REGISTRATE
-                    </h1>
-                    <h2>
+                        <br/>
                         Y GANA
-                    </h2>
-                    <p>
-                        Participa por auto-gadgets, tapíceria, lavadas de auto y muchos premios más.
-                    </p>
+                    </h1>
                 </div>
+                <div className="title-hd bg">
+                    <h1>
+                        REGISTRATE
+                        <br/>
+                        Y GANA
+                    </h1>
+                </div>
+            </div>
+            <div className="descrip-hd">
+                <p>
+                    Participa por <span>INCREIBLES</span> premios
+                </p>
+            </div>
+            <div className="slider">
+                <div className="slider-track">
+                    <div className='slide'>
+                        CAMBIO DE ACEITE
+                    </div>
+                    <div className='slide'>
+                        MANTENIMIENTO
+                    </div>
+                    <div className='slide'>
+                        LAVADA DE AUTO
+                    </div>
+                    <div className='slide'>
+                        ACCESORIOS
+                    </div>
+                    <div className='slide'>
+                        CAMBIO DE ACEITE
+                    </div>
+                    <div className='slide'>
+                        MANTENIMIENTO
+                    </div>
+                    <div className='slide'>
+                        LAVADA DE AUTO
+                    </div>
+                    <div className='slide'>
+                        ACCESORIOS
+                    </div>
+                </div>
+            </div>
+            <div className="form-body">
                 <div className="body-inp">
-                    <div className={ced.length===10 || ced===''?"tec-input":"tec-input error-msg"}>
+                    <div className={ced.length===10 || ced===''?"auto-input":"auto-input error-msg"}>
                         <input name='ced' type='text' placeholder='Cédula' onChange={handleCed} value={ced}/>
                     </div>
-                    <div className={name.length>1 || name===''?"tec-input":"tec-input error-msg"}>
+                    <div className={name.length>1 || name===''?"auto-input":"auto-input error-msg"}>
                         <input name='name' type='text' placeholder='Nombre' onChange={(e)=> setName(e.target.value)} value={name}/>
                     </div>
-                    <div className={last.length>1 || last===''?"tec-input":"tec-input error-msg"}>
+                    <div className={last.length>1 || last===''?"auto-input":"auto-input error-msg"}>
                         <input name='last' type='text' placeholder='Apellido' onChange={(e)=> setLast(e.target.value)} value={last}/>
                     </div>
-                    <div className={!emailWrong?"tec-input":"tec-input error-msg"}>
+                    <div className={!emailWrong?"auto-input":"auto-input error-msg"}>
                         <input name='email' type='email' placeholder='Email' onChange={handleEmail} value={email}/>
                     </div>
-                    <div className={phone.length===10 || phone===''?"tec-input":"tec-input error-msg"}>
+                    <div className={phone.length===10 || phone===''?"auto-input":"auto-input error-msg"}>
                         <input name='phone' type='text' placeholder='Teléfono' onChange={handlePhone} value={phone}/>
                     </div>
-                    <div className="tec-input">
+                    <div className="auto-input">
                         <select onChange={handleProvince} value={province}>
                             <option value={0}>Provincia</option>
                             {
@@ -494,7 +533,7 @@ const TecForm = () => {
                             }
                         </select>
                     </div>
-                    <div className="tec-input">
+                    <div className="auto-input">
                         <select onChange={(e)=>setCity(e.target.value)} value={city}>
                             <option value={0}>Cantón</option>
                             {
@@ -510,6 +549,7 @@ const TecForm = () => {
                     </div>
                     <button className={sendable()?"tec-btn":"tec-btn disabled"} onClick={()=>sendData()}>Enviar</button>
                 </div>
+                <div className='auto-footer'/>
             </div>
             {
                 <>
