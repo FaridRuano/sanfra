@@ -7,7 +7,7 @@ import SanfraLogo from '@public/icons/sanfrancisco.png'
 const personData = async () =>{
     try{
         const uri = process.env.PUBLIC_URL;
-        const res = await fetch(`${uri}api/person`,{
+        const res = await fetch(`${uri}api/auto`,{
             method: "GET",
             headers: {
             "Content-Type":"application/json"
@@ -19,7 +19,7 @@ const personData = async () =>{
         }
   
         const ponse = await res.json()
-        return ponse.persons
+        return ponse.autopersons
     }catch (error) {
         console.log(error)
     }
@@ -28,7 +28,7 @@ const personData = async () =>{
 const postNewPerson = async (newPerson) => {
     try {
         const uri = process.env.PUBLIC_URL;
-        const res = await fetch(`${uri}api/person`,{
+        const res = await fetch(`${uri}api/auto`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -553,12 +553,12 @@ const TecForm = () => {
             </div>
             {
                 <>
-                    <div className={dataSent?'done-tec show':'done-tec'}>
+                    <div className={dataSent?'done-form show':'done-form'}>
                         <h1>
                             Ya estas participando!
                         </h1>
                     </div>
-                    <div className={dataSent?'overlay-tec show': 'overlay-tec'}/>
+                    <div className={dataSent?'overlay-form show': 'overlay-form'}/>
                 </>
             }
         </section>

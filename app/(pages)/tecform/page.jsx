@@ -9,7 +9,7 @@ import { data } from 'autoprefixer'
 const personData = async () =>{
     try{
         const uri = process.env.PUBLIC_URL;
-        const res = await fetch(`${uri}/api/person`,{
+        const res = await fetch(`${uri}/api/tec`,{
             method: "GET",
             headers: {
             "Content-Type":"application/json"
@@ -21,7 +21,7 @@ const personData = async () =>{
         }
   
         const ponse = await res.json()
-        return ponse.persons
+        return ponse.tecpersons
     }catch (error) {
         console.log(error)
     }
@@ -30,7 +30,7 @@ const personData = async () =>{
 const postNewPerson = async (newPerson) => {
     try {
         const uri = process.env.PUBLIC_URL;
-        const res = await fetch(`${uri}/api/person`,{
+        const res = await fetch(`${uri}/api/tec`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,12 +39,11 @@ const postNewPerson = async (newPerson) => {
         });
     
         if (!res.ok) {
-            throw new Error('Failed to post new Person')
+            throw new Error('Failed to post new data')
         }
   
       // Optionally, you can handle the response after posting if needed
       const postedFaculty = await res.json()
-      console.log('Posted person:', postedFaculty)
   
       // Fetch updated data after posting
       const updatedData = await personData()
@@ -516,12 +515,12 @@ const TecForm = () => {
             </div>
             {
                 <>
-                    <div className={dataSent?'done-tec show':'done-tec'}>
+                    <div className={dataSent?'done-form show':'done-form'}>
                         <h1>
                             Ya estas participando!
                         </h1>
                     </div>
-                    <div className={dataSent?'overlay-tec show': 'overlay-tec'}/>
+                    <div className={dataSent?'overlay-form show': 'overlay-form'}/>
                 </>
             }
         </section>

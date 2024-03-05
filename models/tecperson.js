@@ -1,6 +1,6 @@
 import mongoose, { Schema, mongo } from "mongoose";
 
-const personSchema = new Schema(
+const tecpersonSchema = new Schema(
     {
         ced: String,
         name: String,
@@ -15,6 +15,6 @@ const personSchema = new Schema(
     }
 )
 
-const Person = mongoose.models.Person || mongoose.model("Person", personSchema)
+const Tec = mongoose.models.Tec || mongoose.model("Tec", tecpersonSchema)
 
-export default Person
+export default Tec
