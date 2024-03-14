@@ -21,7 +21,10 @@ const Cards = () => {
         if(scrollTop > cardGone){
           card.style.opacity = 0
         }else{
-          card.style.opacity = 1 - Math.min((scrollTop - 818) / fadeOut, 1)
+          if(scrollTop < cardLimit){
+            card.style.opacity = 1
+          }else{
+          }
         }
         card.classList.add("default")
       }else{
@@ -38,11 +41,12 @@ const Cards = () => {
         <div className="main-info">
           <div className="intro">
             <span>
-              Solícita NUEVA Sanfra
+              Solícita <b>NUEVA</b> Sanfra
             </span>
             <h1>
               DEBIT
             </h1>
+            <p>Inbreibles beneficios esperan por ti!</p>
           </div>
         </div>
       </section>
