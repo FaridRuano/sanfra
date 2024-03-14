@@ -3067,8 +3067,8 @@ input, select {
     transform: translate(-50%, -50%) scale(1);
   }
   @media (max-width: 700px) {
-    top: 500px;
-    right: -500px;
+    top: 350px;
+    right: -570px;
     @keyframes cardIn {
       0%{
         transform: translate(-50%, -50%) scale(0);
@@ -3083,8 +3083,11 @@ input, select {
     }
     &.zoom{
       position: absolute;
-      top: 1200px;
-      right: -366px;
+      top: 1010px;
+      right: -570px;
+    }
+    &.default{
+      transform: translate(-50%, -50%) scale(0.65);
     }
   }
 }

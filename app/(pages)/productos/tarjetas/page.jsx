@@ -35,7 +35,6 @@ const Cards = () => {
       <section className="main-ta">
         <Image id="card-3d" className="card-frsd" src={FrSdCard} width={800} height={'auto'}/>
         {/* <Image  className="card-frsd zoom" src={FrSdCard} width={800} height={'auto'}/> */}
-
       </section>
       <section className="second-ta">
 
