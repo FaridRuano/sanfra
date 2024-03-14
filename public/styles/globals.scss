@@ -3033,6 +3033,9 @@ input, select {
   height: 1500px;
   background-color: $secondary-color;
   position: relative;
+  .main-info{
+    
+  }
 }
 
 .card-frsd{
@@ -3066,9 +3069,10 @@ input, select {
     animation: none;
     transform: translate(-50%, -50%) scale(1);
   }
-  @media (max-width: 700px) {
-    top: 350px;
-    right: -570px;
+  @media (max-width: 900px) {
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     @keyframes cardIn {
       0%{
         transform: translate(-50%, -50%) scale(0);

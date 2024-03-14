@@ -35,6 +35,16 @@ const Cards = () => {
       <section className="main-ta">
         <Image id="card-3d" className="card-frsd" src={FrSdCard} width={800} height={'auto'}/>
         {/* <Image  className="card-frsd zoom" src={FrSdCard} width={800} height={'auto'}/> */}
+        <div className="main-info">
+          <div className="intro">
+            <span>
+              Solícita NUEVA Sanfra
+            </span>
+            <h1>
+              DEBIT
+            </h1>
+          </div>
+        </div>
       </section>
       <section className="second-ta">
 
