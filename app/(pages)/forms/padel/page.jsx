@@ -3,7 +3,6 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import SanfraLogo from '@public/icons/sanfrancisco.png'
 
-
 const personData = async () =>{
     try{
         const uri = process.env.PUBLIC_URL;
@@ -52,7 +51,7 @@ const postNewPerson = async (newPerson) => {
     }
   }
 
-const TecForm = () => {
+const PadelForm = () => {
 
     /* Persons */
     const [personsData, setPersonsData] = useState([])
@@ -566,4 +565,4 @@ const TecForm = () => {
   )
 }
 
-export default TecForm
+export default PadelForm
