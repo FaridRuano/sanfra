@@ -12,6 +12,6 @@ export async function POST (request) {
 
 export async function GET () {
     await connectMongoDB()
-    const autopersons = await Auto.find()
-    return NextResponse.json({autopersons})
+    const persons = await Auto.find()
+    return NextResponse.json({persons})
 }

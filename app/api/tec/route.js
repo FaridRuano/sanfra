@@ -12,6 +12,6 @@ export async function POST (request) {
 
 export async function GET () {
     await connectMongoDB()
-    const tecpersons = await Tec.find()
-    return NextResponse.json({tecpersons})
+    const persons = await Tec.find()
+    return NextResponse.json({persons})
 }

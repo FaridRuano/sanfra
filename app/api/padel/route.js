@@ -12,6 +12,6 @@ export async function POST (request) {
 
 export async function GET () {
     await connectMongoDB()
-    const padelpersons = await Padel.find()
-    return NextResponse.json({padelpersons})
+    const persons = await Padel.find()
+    return NextResponse.json({persons})
 }
