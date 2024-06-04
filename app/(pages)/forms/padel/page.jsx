@@ -353,10 +353,9 @@ const PadelForm = () => {
         { id: 185, prov: 23, name: 'Mocha' },
         { id: 186, prov: 23, name: 'Patate' },
         { id: 187, prov: 23, name: 'Quero' },
-        { id: 188, prov: 23, name: 'San Pedro de Pelileo' },
-        { id: 189, prov: 23, name: 'Santa Rosa de Patate' },
+        { id: 188, prov: 23, name: 'Pelileo' },
+        { id: 189, prov: 23, name: 'Pillaro' },
         { id: 190, prov: 23, name: 'Tisaleo' },
-        { id: 197, prov: 23, name: 'Pillaro' },
 
 
         // Cantones de Zamora Chinchipe

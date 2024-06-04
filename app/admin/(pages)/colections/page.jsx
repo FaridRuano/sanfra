@@ -189,6 +189,26 @@ const Colections = () => {
     }
   }
 
+  /* Download To Excel File Data */
+
+  const covertArrayToCsv = (data) =>{
+    const headers = Object.keys(data[0]);
+    const csvRows = data.map(row => headers.map(header => row[header]).join(","));
+    return [headers.join(","), ...csvRows].join("\n");
+  }
+
+  const downloadData = () => {
+    const csv = covertArrayToCsv(personsData)
+    const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.setAttribute('href', url);
+    a.setAttribute('download', 'data.csv');
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
   useEffect(()=>{
     const fetchAndLoadPersons= async () =>{
       if(colection.id !== ''){
@@ -338,7 +358,7 @@ const Colections = () => {
                     </div>
                     <div className="tool-card lined">
                       <div className="tool">
-                        <Download className='icon'/>
+                        <Download className='icon' onClick={()=>{downloadData()}}/>
                       </div>
                       <div className="tool">
                         <BookOpen className='icon'/>
