@@ -4704,6 +4704,7 @@ input:required:invalid::-webkit-validation-bubble{
         left: 50%;
         margin-top: 5px;
         transform: translate(-50%, -50%);
+        white-space: nowrap;
         h1{
           color: transparent;
           -webkit-text-stroke: 0.1px $white-color;
