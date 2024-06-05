@@ -4786,6 +4786,7 @@ input:required:invalid::-webkit-validation-bubble{
         border: solid 2px $white-color;
         padding: 12px 17px;
         transition: .3s ease-out;
+        border-radius: 25px;
         &:hover{
           transform: scale(1.02);
         }
@@ -4853,6 +4854,7 @@ input:required:invalid::-webkit-validation-bubble{
         font-weight: 600;
         cursor: pointer;
         transition: .3s ease-out;
+        border-radius: 25px;
         &:hover{
           transform: scale(1.05);
           color: $white-color;
