@@ -2,7 +2,8 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import SanfraLogo from '@public/icons/sanfrancisco.png'
-
+import cities from '@public/const/citiesData'
+import provinces from '@public/const/provincesData'
 
 const personData = async () =>{
     try{
@@ -52,7 +53,7 @@ const postNewPerson = async (newPerson) => {
     }
   }
 
-const TecForm = () => {
+const AutoForm = () => {
 
     /* Persons */
     const [personsData, setPersonsData] = useState([])
@@ -506,6 +507,32 @@ const TecForm = () => {
                         ACCESORIOS
                     </div>
                 </div>
+                <div className="slider-track">
+                    <div className='slide'>
+                        CAMBIO DE ACEITE
+                    </div>
+                    <div className='slide'>
+                        MANTENIMIENTO
+                    </div>
+                    <div className='slide'>
+                        LAVADA DE AUTO
+                    </div>
+                    <div className='slide'>
+                        ACCESORIOS
+                    </div>
+                    <div className='slide'>
+                        CAMBIO DE ACEITE
+                    </div>
+                    <div className='slide'>
+                        MANTENIMIENTO
+                    </div>
+                    <div className='slide'>
+                        LAVADA DE AUTO
+                    </div>
+                    <div className='slide'>
+                        ACCESORIOS
+                    </div>
+                </div>
             </div>
             <div className="form-body">
                 <div className="body-inp">
@@ -567,4 +594,4 @@ const TecForm = () => {
   )
 }
 
-export default TecForm
+export default AutoForm

@@ -2,13 +2,15 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import SanfraLogo from '@public/icons/sanfrancisco.png'
+import SaludLogo from '@public/icons/salud-logo.png'
 import cities from '@public/const/citiesData'
 import provinces from '@public/const/provincesData'
+
 
 const personData = async () =>{
     try{
         const uri = process.env.PUBLIC_URL;
-        const res = await fetch(`${uri}api/padel`,{
+        const res = await fetch(`${uri}api/salud`,{
             method: "GET",
             headers: {
             "Content-Type":"application/json"
@@ -20,7 +22,7 @@ const personData = async () =>{
         }
   
         const ponse = await res.json()
-        return ponse.padelpersons
+        return ponse.saludpersons
     }catch (error) {
         console.log(error)
     }
@@ -29,7 +31,7 @@ const personData = async () =>{
 const postNewPerson = async (newPerson) => {
     try {
         const uri = process.env.PUBLIC_URL;
-        const res = await fetch(`${uri}api/padel`,{
+        const res = await fetch(`${uri}api/salud`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,15 +55,16 @@ const postNewPerson = async (newPerson) => {
     }
   }
 
-const PadelForm = () => {
+const SaludForm = () => {
 
     /* Persons */
     const [personsData, setPersonsData] = useState([])
 
-    const [province, setProvince] = useState(23)
+    const [province, setProvince] = useState(0)
     const [city, setCity] = useState(0)
     const [filtered, setFiltered] = useState([])
     const [accepted, setAccepted] = useState(false)
+    const [accepted2, setAccepted2] = useState(false)
 
     /* FormData */
     const [ced, setCed] = useState('')
@@ -70,6 +73,7 @@ const PadelForm = () => {
     const [email, setEmail] = useState('')
     const [emailWrong, setEmailWrong] = useState(false)
     const [phone, setPhone] = useState('')
+    const [amount, setAmount] = useState('')
 
     const [dataSent, setDataSent] = useState(false)
 
@@ -98,6 +102,13 @@ const PadelForm = () => {
         }
     }
 
+    const handleAmount = (e) => {
+      const value = e.target.value;
+      if (value === '' || (Number(value) <= 10000 && Number(value) >= 0)) {
+        setAmount(value);
+      }
+    };
+
     const citiesFiltered = (p) => {
         let res = cities
         const provinceId = parseInt(p);
@@ -114,7 +125,7 @@ const PadelForm = () => {
 
     const sendable = () => {
         let res = true
-        if(name < 2 || last < 2 || ced < 10 || phone < 10 || emailWrong || province === 0 || city === 0 || !accepted){
+        if(name < 2 || last < 2 || ced < 10 || phone < 10 || emailWrong || province === 0 || city === 0 || !accepted || !accepted2 || amount < 100){
             res = false
         }
         return res
@@ -129,8 +140,10 @@ const PadelForm = () => {
             setPhone('')
             setEmail('')
             setAccepted(false)
-            setProvince(23)
+            setAccepted2(false)
+            setProvince(0)
             setCity(0)
+            setAmount('')
             handlePostPerson()
         }, 1500)
         setTimeout(() => {
@@ -169,7 +182,8 @@ const PadelForm = () => {
             email: email,
             phone: phone,
             province: pr.name,
-            city: ct.name
+            city: ct.name,
+            amount: amount
         }
     
         try {
@@ -182,58 +196,87 @@ const PadelForm = () => {
 
   return (
     <>
-        <section className='main-padel'>
+        <section className='main-salud'>
             <div className="logo-wrap">
                 <div className="logo-holder">
                     <Image src={SanfraLogo} width={200} height={'auto'} alt='Sf logo'/>
+                </div>
+                <div className="logo-holder">
+                    <Image src={SaludLogo} width={200} height={'auto'} alt='Sf logo'/>
                 </div>
             </div>
             <div className="form-header">
                 <div className="title-hd">
                     <h1>
-                        REGISTRATE
+                        SOLICITA TU
                         <br/>
-                        Y GANA
+                        <span>CREDI SALUD</span>
                     </h1>
                 </div>
                 <div className="title-hd bg">
                     <h1>
-                        REGISTRATE
+                        SOLICITA TU
                         <br/>
-                        Y GANA
+                        <span>CREDI SALUD</span>
                     </h1>
                 </div>
             </div>
             <div className="descrip-hd">
                 <p>
-                    Participa por <span>INCREIBLES</span> premios
+                    Al <span>14% de interés</span>
                 </p>
             </div>
             <div className="slider">
                 <div className="slider-track">
                     <div className='slide'>
-                        DESCUENTOS
+                      EMERGENCIA
                     </div>
                     <div className='slide'>
-                        GIFT CARDS
+                      HOSPITALIZACIÓN
                     </div>
                     <div className='slide'>
-                        MOCHILAS
+                      CONSULTA EXTERNA
                     </div>
                     <div className='slide'>
-                        PROMOCIONES
+                      CIRUGÍA
                     </div>
                     <div className='slide'>
-                        DESCUENTOS
+                      CUIDADOS INTENSIVOS
                     </div>
                     <div className='slide'>
-                        GIFT CARDS
+                      CENTRO DE IMÁGENES
                     </div>
                     <div className='slide'>
-                        MOCHILAS
+                      LABORATORIO CLÍNICO
                     </div>
                     <div className='slide'>
-                        PROMOCIONES
+                      GASTROENTEROLOGÍA
+                    </div>
+                </div>
+                <div className="slider-track">
+                  <div className='slide'>
+                      EMERGENCIA
+                    </div>
+                    <div className='slide'>
+                      HOSPITALIZACIÓN
+                    </div>
+                    <div className='slide'>
+                      CONSULTA EXTERNA
+                    </div>
+                    <div className='slide'>
+                      CIRUGÍA
+                    </div>
+                    <div className='slide'>
+                      CUIDADOS INTENSIVOS
+                    </div>
+                    <div className='slide'>
+                      CENTRO DE IMÁGENES
+                    </div>
+                    <div className='slide'>
+                      LABORATORIO CLÍNICO
+                    </div>
+                    <div className='slide'>
+                      GASTROENTEROLOGÍA
                     </div>
                 </div>
             </div>
@@ -255,7 +298,7 @@ const PadelForm = () => {
                         <input name='phone' type='text' placeholder='Teléfono' onChange={handlePhone} value={phone}/>
                     </div>
                     <div className="auto-input">
-                        <select onChange={handleProvince} value={province} disabled>
+                        <select onChange={handleProvince} value={province}>
                             <option value={0}>Provincia</option>
                             {
                                 provinces.map((prov, i)=>(
@@ -274,9 +317,16 @@ const PadelForm = () => {
                             }
                         </select>
                     </div>
+                    <div className={amount < 100 && amount.length > 0?"auto-input error-msg":"auto-input"}>
+                        <input name='amount' type='number' placeholder='Monto' onChange={handleAmount} value={amount}/>
+                    </div>
                     <div className="tec-checkbox">
                         <input type='checkbox' checked={accepted} onChange={(e)=>setAccepted(e.target.value)}/>
                         <span>Acepto los <a href="/docs/Politica_Proteccion_Datos.pdf" target='_blank'>términos y condiciones</a></span>
+                    </div>
+                    <div className="tec-checkbox">
+                        <input type='checkbox' checked={accepted2} onChange={(e)=>setAccepted2(e.target.value)}/>
+                        <span>Autorizo revisión central de riesgos</span>
                     </div>
                     <button className={sendable()?"tec-btn":"tec-btn disabled"} onClick={()=>sendData()}>Enviar</button>
                 </div>
@@ -297,4 +347,4 @@ const PadelForm = () => {
   )
 }
 
-export default PadelForm
+export default SaludForm
