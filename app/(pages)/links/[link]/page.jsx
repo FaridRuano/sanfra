@@ -16,6 +16,8 @@ const page = ({params}) => {
                 router.push('https://apps.apple.com/us/app/sanfra-m%C3%B3vil-2-0/id6451325530')
             }else if( url === 'huawei'){
                 router.push('https://appgallery.huawei.com/app/C108908715?fbclid=IwZXh0bgNhZW0CMTAAAR0cqYOyIrodvKpvB5fs1nM8m3JBEMYFsJAscqakk04s68Wm-VCsBAtJAzI_aem_ZZ1LDTyPIVs7fbQzbTtVVA')
+            }else if( url === 'educa'){
+                router.push('https://sanfrancisco.yodecidomisfinanzas.coonecta.com/?fbclid=IwAR2-qPAf-UyuNLndOYdEfMuPzYEm4lLyTbvigob7vtEFGfEm_7w6N-yUtsk')
             }
         }
       }, [])
