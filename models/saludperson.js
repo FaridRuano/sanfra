@@ -10,6 +10,7 @@ const saludpersonSchema = new Schema(
         province: String,
         city: String,
         amount: Number,
+        doc: String,
     },
     {
         timestamps: true,
