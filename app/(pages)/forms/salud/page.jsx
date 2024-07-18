@@ -154,6 +154,7 @@ const SaludForm = () => {
     }
 
     const handleSegment = (e) => {
+        setDoctor(0)
         setSpeciality(e.target.value)
         setFilteredDoctors(doctorsFiltered(e.target.value))
     }
@@ -320,104 +321,85 @@ const SaludForm = () => {
             </div>
             <div className="form-body">
                 <div className='body-inp'>
-                {
-                    speciality === 0 ? (
-                        <>
-                            <div className="body-header">
-                                Selecciona la especilidad <br/>
-                                <b>de interes</b>
-                            </div>
-                            <div className="auto-input">
-                                <select onChange={handleSegment} value={speciality}>
-                                    <option value={0}>Especialidad</option>
-                                    {
-                                        segments.map((seg, i)=>(
-                                            <option value={seg.id} key={i}>{seg.name}</option>
-                                        ))
-                                    }
-                                </select>
-                            </div>
-                        </>
-                    ):(
-                        <>
-                            <div className="body-header">
-                                Selecciona el doctor <br/>
-                                <b>de interes</b>
-                            </div>
-                            <div className="auto-input">
-                                <select onChange={(e)=>setDoctor(e.target.value)} value={doctor}>
-                                    <option value={0}>Doctor</option>
-                                    {
-                                        filteredDoctors.map((doc, i)=>(
-                                            <option value={doc.id} key={i}>{doc.name}</option>
-                                        ))
-                                    }
-                                </select>
-                            </div>
-                            <div className="body-span">
-                                {specialityDoctor()}
-                            </div>
-                        </>
-                    )
-                }
-                {
-                    doctor > 0 ? (
-                        <>
-                                <div className={ced.length===10 || ced===''?"auto-input":"auto-input error-msg"}>
-                                    <input name='ced' type='text' placeholder='Cédula' onChange={handleCed} value={ced}/>
-                                </div>
-                                <div className={name.length>1 || name===''?"auto-input":"auto-input error-msg"}>
-                                    <input name='name' type='text' placeholder='Nombre' onChange={(e)=> setName(e.target.value)} value={name}/>
-                                </div>
-                                <div className={last.length>1 || last===''?"auto-input":"auto-input error-msg"}>
-                                    <input name='last' type='text' placeholder='Apellido' onChange={(e)=> setLast(e.target.value)} value={last}/>
-                                </div>
-                                <div className={!emailWrong?"auto-input":"auto-input error-msg"}>
-                                    <input name='email' type='email' placeholder='Email' onChange={handleEmail} value={email}/>
-                                </div>
-                                <div className={phone.length===10 || phone===''?"auto-input":"auto-input error-msg"}>
-                                    <input name='phone' type='text' placeholder='Teléfono' onChange={handlePhone} value={phone}/>
-                                </div>
-                                <div className="auto-input">
-                                    <select onChange={handleProvince} value={province}>
-                                        <option value={0}>Provincia</option>
-                                        {
-                                            provinces.map((prov, i)=>(
-                                                <option value={prov.id} key={i}>{prov.name}</option>
-                                            ))
-                                        }
-                                    </select>
-                                </div>
-                                <div className="auto-input">
-                                    <select onChange={(e)=>setCity(e.target.value)} value={city}>
-                                        <option value={0}>Cantón</option>
-                                        {
-                                            filtered.map((citi, i)=>(
-                                                <option value={citi.id} key={i}>{citi.name}</option>
-                                            ))
-                                        }
-                                    </select>
-                                </div>
-                                <div className={amount < 100 && amount.length > 0?"auto-input error-msg":"auto-input"}>
-                                    <input name='amount' type='number' placeholder='Monto' onChange={handleAmount} value={amount}/>
-                                </div>
-                                <div className="tec-checkbox">
-                                    <input type='checkbox' checked={accepted} onChange={(e)=>setAccepted(e.target.value)}/>
-                                    <span>Acepto los <a href="/docs/Politica_Proteccion_Datos.pdf" target='_blank'>términos y condiciones</a></span>
-                                </div>
-                                <div className="tec-checkbox">
-                                    <input type='checkbox' checked={accepted2} onChange={(e)=>setAccepted2(e.target.value)}/>
-                                    <span>Autorizo revisión central de riesgos</span>
-                                </div>
-                                <button className={sendable()?"tec-btn":"tec-btn disabled"} onClick={()=>sendData()}>Enviar</button>
-                            <div className='auto-footer'/>
-                        </>
-
-                    ):(
-                        <>
-                        </>
-                    )
-                }
+                    <div className="body-header">
+                        Selecciona la especilidad <br/>
+                        <b>de interes</b>
+                    </div>
+                    <div className="auto-input">
+                        <select onChange={handleSegment} value={speciality}>
+                            <option value={0}>Especialidad</option>
+                            {
+                                segments.map((seg, i)=>(
+                                    <option value={seg.id} key={i}>{seg.name}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+                    <div className="body-header">
+                        Selecciona el doctor <br/>
+                        <b>de interes</b>
+                    </div>
+                    <div className="auto-input">
+                        <select onChange={(e)=>setDoctor(e.target.value)} value={doctor}>
+                            <option value={0}>Doctor</option>
+                            {
+                                filteredDoctors.map((doc, i)=>(
+                                    <option value={doc.id} key={i}>{doc.name}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+                    <div className="body-span">
+                        {specialityDoctor()}
+                    </div>
+                    <div className={ced.length===10 || ced===''?"auto-input":"auto-input error-msg"}>
+                        <input name='ced' type='text' placeholder='Cédula' onChange={handleCed} value={ced}/>
+                    </div>
+                    <div className={name.length>1 || name===''?"auto-input":"auto-input error-msg"}>
+                        <input name='name' type='text' placeholder='Nombre' onChange={(e)=> setName(e.target.value)} value={name}/>
+                    </div>
+                    <div className={last.length>1 || last===''?"auto-input":"auto-input error-msg"}>
+                        <input name='last' type='text' placeholder='Apellido' onChange={(e)=> setLast(e.target.value)} value={last}/>
+                    </div>
+                    <div className={!emailWrong?"auto-input":"auto-input error-msg"}>
+                        <input name='email' type='email' placeholder='Email' onChange={handleEmail} value={email}/>
+                    </div>
+                    <div className={phone.length===10 || phone===''?"auto-input":"auto-input error-msg"}>
+                        <input name='phone' type='text' placeholder='Teléfono' onChange={handlePhone} value={phone}/>
+                    </div>
+                    <div className="auto-input">
+                        <select onChange={handleProvince} value={province}>
+                            <option value={0}>Provincia</option>
+                            {
+                                provinces.map((prov, i)=>(
+                                    <option value={prov.id} key={i}>{prov.name}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+                    <div className="auto-input">
+                        <select onChange={(e)=>setCity(e.target.value)} value={city}>
+                            <option value={0}>Cantón</option>
+                            {
+                                filtered.map((citi, i)=>(
+                                    <option value={citi.id} key={i}>{citi.name}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+                    <div className={amount < 100 && amount.length > 0?"auto-input error-msg":"auto-input"}>
+                        <input name='amount' type='number' placeholder='Monto' onChange={handleAmount} value={amount}/>
+                    </div>
+                    <div className="tec-checkbox">
+                        <input type='checkbox' checked={accepted} onChange={(e)=>setAccepted(e.target.value)}/>
+                        <span>Acepto los <a href="/docs/Politica_Proteccion_Datos.pdf" target='_blank'>términos y condiciones</a></span>
+                    </div>
+                    <div className="tec-checkbox">
+                        <input type='checkbox' checked={accepted2} onChange={(e)=>setAccepted2(e.target.value)}/>
+                        <span>Autorizo revisión central de riesgos</span>
+                    </div>
+                    <button className={sendable()?"tec-btn":"tec-btn disabled"} onClick={()=>sendData()}>Enviar</button>
+                <div className='auto-footer'/>
                 </div>
             </div>
             {
