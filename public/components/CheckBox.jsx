@@ -4,11 +4,11 @@ import Image from 'next/image'
 import React from 'react'
 import Check from "@public/images/form/check-icon.png"
 
-const CheckBox = ({check, handleCheck}) => {
+const CheckBox = ({check, handleCheck, ref}) => {
 
   return (
     <div className='checkbox-f'>
-        <div className='check' onClick={()=>handleCheck()}>
+        <div className='check' onClick={()=>handleCheck()} ref={ref}>
             {
                 check && (
                     <Image src={Check} width={15} height={'auto'} alt='Check'/>

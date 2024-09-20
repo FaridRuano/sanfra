@@ -96,7 +96,9 @@ const form = () => {
   const dniRef = useRef(null)
   const emailRef = useRef(null)
   const phoneRef = useRef(null)
+  const checkRef = useRef(null)
   const submitRef = useRef(null)
+
 
   const handleKeyDown = (e, nextRef) => {
     if (e.key === 'Enter') {
@@ -132,10 +134,10 @@ const form = () => {
             <input placeholder="Correo" value={data.email} onChange={handleData} name="email" ref={emailRef} onKeyDown={(e) => handleKeyDown(e, phoneRef)}/>
           </div>
           <div className="input-form-f">
-            <input placeholder="Teléfono" type="number" value={data.phone} onChange={handleData} name="phone" maxLength={10} ref={phoneRef}/>
+            <input placeholder="Teléfono" type="number" value={data.phone} onChange={handleData} name="phone" maxLength={10} ref={phoneRef} onKeyDown={(e) => handleKeyDown(e, checkRef)}/>
           </div>
           <div className="checkbox">
-            <CheckBox check={check} handleCheck={handleCheck}/>
+            <CheckBox check={check} handleCheck={handleCheck} ref={checkRef}/>
           </div>
           <div className={verifyData() ? "input-form-f f": "input-form-f f disabled"} >
             <button type="submit" ref={submitRef}>
