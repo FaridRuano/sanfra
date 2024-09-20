@@ -6,7 +6,7 @@ import Card from "@public/images/form/card.png"
 import Cloud2 from "@public/images/form/cloud2.png"
 import Head from "@public/images/form/head.png"
 import Image from "next/image"
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import CheckBox from "@public/components/CheckBox"
 
 const postData = async(data) => {
@@ -63,12 +63,16 @@ const form = () => {
   }
 
   const handleSubmit = async(e) => {
-
-    e.preventDefault()
-
-    await postData(data)
-
-    clean()
+    if(verifyData()){
+      e.preventDefault()
+  
+      await postData(data)
+  
+      clean()
+    }else{
+      e.preventDefault()
+      console.log('Campos Vacios')
+    }
   }
 
   const verifyData = () => {
@@ -87,6 +91,18 @@ const form = () => {
       phone: '',
     })
     setCheck(false)
+  }
+
+  const dniRef = useRef(null)
+  const emailRef = useRef(null)
+  const phoneRef = useRef(null)
+  const submitRef = useRef(null)
+
+  const handleKeyDown = (e, nextRef) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      nextRef.current.focus()
+    }
   }
   
 
@@ -107,22 +123,22 @@ const form = () => {
         </h3>
         <form onSubmit={handleSubmit}>
           <div className="input-form-f">
-            <input placeholder="Nombre" value={data.name} onChange={handleData} name="name"/>
+            <input placeholder="Nombre" value={data.name} onChange={handleData} name="name" onKeyDown={(e) => handleKeyDown(e, dniRef)}/>
           </div>
           <div className="input-form-f">
-            <input placeholder="Cedúla" type="number" value={data.dni} onChange={handleData} name="dni" maxLength={10}/>
+            <input placeholder="Cedúla" type="number" value={data.dni} onChange={handleData} name="dni" maxLength={10} ref={dniRef} onKeyDown={(e) => handleKeyDown(e, emailRef)}/>
           </div>
           <div className="input-form-f">
-            <input placeholder="Correo" value={data.email} onChange={handleData} name="email"/>
+            <input placeholder="Correo" value={data.email} onChange={handleData} name="email" ref={emailRef} onKeyDown={(e) => handleKeyDown(e, phoneRef)}/>
           </div>
           <div className="input-form-f">
-            <input placeholder="Teléfono" type="number" value={data.phone} onChange={handleData} name="phone" maxLength={10}/>
+            <input placeholder="Teléfono" type="number" value={data.phone} onChange={handleData} name="phone" maxLength={10} ref={phoneRef}/>
           </div>
           <div className="checkbox">
             <CheckBox check={check} handleCheck={handleCheck}/>
           </div>
           <div className={verifyData() ? "input-form-f f": "input-form-f f disabled"} >
-            <button type="submit" >
+            <button type="submit" ref={submitRef}>
               Enviar
             </button>
           </div>
