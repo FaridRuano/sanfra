@@ -36,6 +36,10 @@ const postData = async(data) => {
 
 const form = () => {
 
+  /* Loading */
+
+  const [loading, setLoading] = useState(false)
+
   /* Check */
 
   const [check, setCheck] = useState(false)
@@ -64,11 +68,14 @@ const form = () => {
 
   const handleSubmit = async(e) => {
     if(verifyData()){
+      setLoading(true)
       e.preventDefault()
   
       await postData(data)
   
       clean()
+      setLoading(false)
+
     }else{
       e.preventDefault()
       console.log('Campos Vacios')
@@ -106,48 +113,68 @@ const form = () => {
       nextRef.current.focus()
     }
   }
+
+  if(loading){
+    return (
+      <div className='party-form'>
+        <div className='background'/>
+        <Image className="head" src={Head} width={260} height={'auto'} alt="Image"/>
+        <Image className="card" src={Card} width={360} height={'auto'} alt="Image"/>
+        <Image className="cloud" src={Cloud2} width={460} height={'auto'} alt="Image"/>
+  
+        <div className="main">
+          <div className="logo-wrap-f">
+            <Image src={Logo} width={200} height={'auto'} alt="Logo Sanfra"/>
+            <Image className="cloud" src={Cloud} width={360} height={'auto'} alt="Image"/>
+          </div>
+        </div>
+      </div>
+    )
+  }else{
+
+    return (
+      <div className='party-form'>
+        <div className='background'/>
+        <Image className="head" src={Head} width={260} height={'auto'} alt="Image"/>
+        <Image className="card" src={Card} width={360} height={'auto'} alt="Image"/>
+        <Image className="cloud" src={Cloud2} width={460} height={'auto'} alt="Image"/>
+  
+        <div className="main">
+          <div className="logo-wrap-f">
+            <Image src={Logo} width={200} height={'auto'} alt="Logo Sanfra"/>
+            <Image className="cloud" src={Cloud} width={360} height={'auto'} alt="Image"/>
+          </div>
+          <h3>
+            Ingresa tus Datos
+          </h3>
+          <form onSubmit={handleSubmit}>
+            <div className="input-form-f">
+              <input placeholder="Nombre" value={data.name} onChange={handleData} name="name" onKeyDown={(e) => handleKeyDown(e, dniRef)}/>
+            </div>
+            <div className="input-form-f">
+              <input placeholder="Cedúla" type="number" value={data.dni} onChange={handleData} name="dni" maxLength={10} ref={dniRef} onKeyDown={(e) => handleKeyDown(e, emailRef)}/>
+            </div>
+            <div className="input-form-f">
+              <input placeholder="Correo" value={data.email} onChange={handleData} name="email" ref={emailRef} onKeyDown={(e) => handleKeyDown(e, phoneRef)}/>
+            </div>
+            <div className="input-form-f">
+              <input placeholder="Teléfono" type="number" value={data.phone} onChange={handleData} name="phone" maxLength={10} ref={phoneRef} onKeyDown={(e) => handleKeyDown(e, checkRef)}/>
+            </div>
+            <div className="checkbox">
+              <CheckBox check={check} handleCheck={handleCheck} ref={checkRef}/>
+            </div>
+            <div className={verifyData() ? "input-form-f f": "input-form-f f disabled"} >
+              <button type="submit" ref={submitRef}>
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    )
+  }
   
 
-  return (
-    <div className='party-form'>
-      <div className='background'/>
-      <Image className="head" src={Head} width={260} height={'auto'} alt="Image"/>
-      <Image className="card" src={Card} width={360} height={'auto'} alt="Image"/>
-      <Image className="cloud" src={Cloud2} width={460} height={'auto'} alt="Image"/>
-
-      <div className="main">
-        <div className="logo-wrap-f">
-          <Image src={Logo} width={200} height={'auto'} alt="Logo Sanfra"/>
-          <Image className="cloud" src={Cloud} width={360} height={'auto'} alt="Image"/>
-        </div>
-        <h3>
-          Ingresa tus Datos
-        </h3>
-        <form onSubmit={handleSubmit}>
-          <div className="input-form-f">
-            <input placeholder="Nombre" value={data.name} onChange={handleData} name="name" onKeyDown={(e) => handleKeyDown(e, dniRef)}/>
-          </div>
-          <div className="input-form-f">
-            <input placeholder="Cedúla" type="number" value={data.dni} onChange={handleData} name="dni" maxLength={10} ref={dniRef} onKeyDown={(e) => handleKeyDown(e, emailRef)}/>
-          </div>
-          <div className="input-form-f">
-            <input placeholder="Correo" value={data.email} onChange={handleData} name="email" ref={emailRef} onKeyDown={(e) => handleKeyDown(e, phoneRef)}/>
-          </div>
-          <div className="input-form-f">
-            <input placeholder="Teléfono" type="number" value={data.phone} onChange={handleData} name="phone" maxLength={10} ref={phoneRef} onKeyDown={(e) => handleKeyDown(e, checkRef)}/>
-          </div>
-          <div className="checkbox">
-            <CheckBox check={check} handleCheck={handleCheck} ref={checkRef}/>
-          </div>
-          <div className={verifyData() ? "input-form-f f": "input-form-f f disabled"} >
-            <button type="submit" ref={submitRef}>
-              Enviar
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  )
 }
 
 export default form
