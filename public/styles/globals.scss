@@ -5557,15 +5557,15 @@ input:required:invalid::-webkit-validation-bubble{
         }
         &.f{
           border: none;
-          background: linear-gradient(90deg, rgba(197,182,241,0) 0%, rgba(197,182,241,.9) 100%);
+          background-color: #c5b6f1;
           transition: .3s ease-out;
           &:hover{
-            background: linear-gradient(90deg, rgba(197,182,241,1) 0%, rgba(197,182,241,1) 100%);
+            background-color: #c5b6f1;
           }
         }
         &.disabled{
           pointer-events: none;
-          opacity: .5;
+          opacity: .8;
         }
       }
     }
