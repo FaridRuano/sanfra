@@ -640,6 +640,7 @@ input, select {
     @media (max-width: 750px) {
       gap: 5vw;
       .card{
+        width: 70vw;
         .card-header{
           h2{
             font-size: $xbig;
