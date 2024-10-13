@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <section className='main-footer'>
       <div className="logo">
-        <Image src={Logo} width={200} height={'auto'} alt='Sanfra'/>
+        <Image src={Logo} width={150} height={'auto'} alt='Sanfra'/>
       </div>
       <div className="items">
         <div className="item">
