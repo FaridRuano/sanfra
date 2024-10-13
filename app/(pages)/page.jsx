@@ -79,7 +79,7 @@ const Home = () => {
     useEffect(() => {
         const intervalCosede = setInterval(() => {
           setActiveCosede(current => !current)
-        }, 7000)
+        }, 10000)
     
         return () => clearInterval(intervalCosede)
     }, [])
