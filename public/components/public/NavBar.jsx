@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import NavLogo from '@public/assets/icons/logo-navbar.webp'
 import NavMenu from '@public/assets/icons/menu-navbar.webp'
 import NavClose from '@public/assets/icons/close-navbar.webp'
+import { useRouter } from 'next/navigation'
 
 const useWindowSize = () => {
 
@@ -31,6 +32,8 @@ const useWindowSize = () => {
 
 const NavBar = () => {
 
+    const router = useRouter()
+
     const size = useWindowSize()
 
     const [isMenu, setMenu] = useState(false)
@@ -50,7 +53,7 @@ const NavBar = () => {
     if(size.width > 900) {
         return (
             <nav className='public-navbar'>
-                <div className="nav-logo cp-hs">
+                <div className="nav-logo cp-hs" onClick={()=>router.push('/')}>
                     <Image src={NavLogo} width={79} height={'auto'} alt='Sanfra'/>
                 </div>
                 <div className="nav-links">

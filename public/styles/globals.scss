@@ -57,13 +57,18 @@ input, select {
 }
 
 .app{
-  margin-top: 59px;
   max-width: 1200px;
   margin: auto;
   @media (max-width: 1000px) {
     padding: 0 0px;
     margin-top: 50px;
   }
+}
+
+.min{
+  min-height: 100vh;
+  margin-top: 59px;
+
 }
 
 .cp-hs{
@@ -1123,6 +1128,220 @@ input, select {
       }
       &.next{
         transform: translate(-77%, -50%);
+      }
+    }
+  }
+}
+
+/* Events */
+
+.events-header{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px $primary-color;
+  border-radius: 30px;
+  h1{
+    color: $primary-color;
+  }
+  @media (max-width: 800px) {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+.events-descrip{
+  width: 100%;
+  height: 50px;
+  color: $primary-color;
+  font-size: $standar;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 800px) {
+    width: 80%;
+    margin: auto;
+    height: fit-content;
+    padding: 10px 0;
+  }
+}
+
+.events-viewmodes{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding:  10px 0;
+  img{
+    &.dis{
+      opacity: .5;
+    }
+  }
+  @media (max-width: 800px) {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+.event-slider{
+  width: 100%;
+  height: 450px;
+  margin-bottom: 20px;
+  .slider{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .event{
+      width: 200px;
+      height: 200px;
+      border-radius: 25px;
+      background-color: transparent;
+      border: solid 2px $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .img-holder{
+        overflow: hidden;
+        width: 190px;
+        height: 190px;
+        border-radius: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .3s ease-in-out;
+        img{
+          filter: blur(5px);
+          height: 190px;
+          width: auto;
+        }
+      }
+      &.active{
+        width: 450px;
+        height: 450px;
+        border-radius: 45px;
+        background-color: $primary-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        .img-holder{
+          height: 430px;
+          width: 430px;
+          border-radius: 45px;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img{
+            filter: blur(0);
+            height: 430px;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 800px) {
+    height: 350px;
+    .slider{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .event{
+        width: 100px;
+        height: 100px;
+        .img-holder{
+          width: 90px;
+          height: 90px;
+          img{
+            height: 90px;
+          }
+        }
+        &.prev{
+          position: absolute;
+          left: -70px;
+        }
+        &.next{
+          position: absolute;
+          right: -70px;
+        }
+        &.active{
+          width: 350px;
+          height: 350px;
+          .img-holder{
+            width: 335px;
+            height: 335px;
+            img{
+              height: 335px;
+            }
+          }
+        }
+      }
+      .arrow{
+        position: absolute;
+        z-index: 1;
+        &.r{
+          right: 50px;
+        }
+        &.l{
+          left: 50px;
+        }
+      }
+    }
+  }
+}
+
+.event-details{
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container{
+    width: 410px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    padding: 20px;
+    border: solid 1px $primary-color;
+    color: $primary-color;
+    border-radius: 35px;
+    h1{
+      font-size: $big;
+    }
+    .detail{
+      display: flex;
+      div{
+        font-weight: 700;
+        font-size: $standar;
+        width: 100px;
+      }
+      p{
+        font-size: $standar;
+      }
+    }
+    .benefit{
+      margin-top: 10px;
+      div{
+        font-weight: 700;
+        font-size: $standar;
+      }
+      p{
+        font-size: $standar;
+      }
+    }
+  }
+  @media (max-width: 800px) {
+    .container{
+      width: 310px;
+      .detail{
+        div{
+          width: 70px;
+        }
       }
     }
   }

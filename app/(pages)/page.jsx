@@ -24,8 +24,13 @@ import Partner1 from '@public/assets/imgs/partners/partner-1.webp'
 import Partner2 from '@public/assets/imgs/partners/partner-2.webp'
 
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 const Home = () => {
+
+    /* Router */
+
+    const router = useRouter()
 
     /* Card Slider */
 
@@ -232,8 +237,8 @@ const Home = () => {
                 <div className="events">
                     <div className={`event ${activeEvent === 1 ? 'active':''}`} onClick={()=>handleActiveEvent(1)}>
                         <div className="topic">
-                            <h2>Danny Ocean</h2>
-                            <p>Coliseo General Ruminahui - 15 Nov 2024</p>
+                            <h2>PAPAYA DADA CONCERT</h2>
+                            <p>Lov Music Club - 18 Oct 2024</p>
                             <div className="more cp-hs">
                                 <span>Conoce más</span>
                                 <Image src={ArrowRight} width={9} height={'auto'} alt='Arrow right'/>
@@ -243,8 +248,8 @@ const Home = () => {
                     </div>
                     <div className={`event ${activeEvent === 2 ? 'active':''}`} onClick={()=>handleActiveEvent(2)}>
                         <div className="topic">
-                            <h2>Beele</h2>
-                            <p>Estadio Bellavista - 20 Nov 2024</p>
+                            <h2>L.D.U VS T.U</h2>
+                            <p>Estadio Bellavista - 19 Oct 2024</p>
                             <div className="more cp-hs">
                                 <span>Conoce más</span>
                                 <Image src={ArrowRight} width={9} height={'auto'} alt='Arrow right'/>
@@ -254,8 +259,8 @@ const Home = () => {
                     </div>
                     <div className={`event ${activeEvent === 3 ? 'active':''}`} onClick={()=>handleActiveEvent(3)}>
                         <div className="topic">
-                            <h2>Ultra Music Festival</h2>
-                            <p>Parque Bicentenario - 30 Nov 2024</p>
+                            <h2>Trick or Drink</h2>
+                            <p>Samanga - 26 Nov 2024</p>
                             <div className="more cp-hs">
                                 <span>Conoce más</span>
                                 <Image src={ArrowRight} width={9} height={'auto'} alt='Arrow right'/>
@@ -266,7 +271,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="eve-footer">
-                <span>
+                <span onClick={()=>router.push('/events')}>
                     Ver todos los próximos eventos
                 </span>
             </div>
