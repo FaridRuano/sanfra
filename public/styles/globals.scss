@@ -57,18 +57,22 @@ input, select {
 }
 
 .app{
-  max-width: 1200px;
   margin: auto;
+  width: 100vw;
+  overflow: hidden;
+  @media (max-width: 1200px) {
+    
+  }
   @media (max-width: 1000px) {
     padding: 0 0px;
     margin-top: 50px;
+    
   }
 }
 
 .min{
   min-height: 100vh;
   margin-top: 59px;
-
 }
 
 .cp-hs{
@@ -380,6 +384,8 @@ input, select {
 
 .home-sec1{
   position: relative;
+  max-width: 1200px;
+  margin: auto;
   width: 100%;
   height: 1000px;
   overflow: hidden;
@@ -571,7 +577,6 @@ input, select {
 
 .card-slider{
   position: relative;
-  width: 100%;
   .slider{
     position: absolute;
     bottom: 0px;
@@ -711,6 +716,8 @@ input, select {
 
 .events{
   width: 100%;
+  max-width: 1200px;
+  margin: auto;
   margin-bottom: 50px;
   .eve-body{
     height: 300px;
@@ -853,6 +860,8 @@ input, select {
 
 .partners{
   width: 100%;
+  max-width: 1200px;
+  margin: auto;
   margin-bottom: 50px;
   .par-body{
     display: flex;
@@ -933,6 +942,8 @@ input, select {
 
 .shortcuts{
   height: fit-content;
+  max-width: 1000px;
+  margin: auto;
   width: calc(100% - 200px);
   padding: 40px 100px;
   border-radius: 25px;
@@ -1016,18 +1027,17 @@ input, select {
   height: 350px;
   position: relative;
   margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .slider{
     width: fit-content;
     display: flex;
-    gap: 10vw;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-25%, -50%);
+    gap: 150px;
     transition: 1s ease-in-out;
+    transform: translateX(467px);    
     .cosede{
-      width: calc(60vw - 80px);
-      max-width: 700px;
+      width: 700px;
       padding: 0 40px;
       border: solid 2px $white;
       height: 160px;
@@ -1061,7 +1071,7 @@ input, select {
       }
     }
     &.next{
-      transform: translate(-75%, -50%);
+      transform: translateX(-467px);    
     }
   }
   .slider-controller{
@@ -1090,29 +1100,13 @@ input, select {
       }
     }
   }
-  @media (max-width: 900px) {
-    .slider{
-      transform: translate(-23%, -50%);
-      .cosede{
-        width: calc(70vw - 80px);
-        .photo{
-          img{
-            height: 60px;
-            width: auto;
-          }
-        }
-      }
-      &.next{
-        transform: translate(-77%, -50%);
-      }
-    }
-  }
-  @media (max-width: 750px) {
+  @media (max-width: 850px) {
     height: 500px;
     .slider{
-      transform: translate(-23%, -50%);
+      transform: translateX(217px);
+      gap: 50px;
       .cosede{
-        width: calc(80vw - 80px);
+        width: 300px;
         flex-direction: column;
         height: 200px;
         padding: 40px;
@@ -1127,7 +1121,7 @@ input, select {
         
       }
       &.next{
-        transform: translate(-77%, -50%);
+        transform: translateX(-217px);
       }
     }
   }
@@ -1343,6 +1337,148 @@ input, select {
           width: 70px;
         }
       }
+    }
+  }
+}
+
+/* Form */
+
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  min-height: 500px;
+  position: relative;
+  .form-wrap{
+    padding: 20px;
+    width: 700px;
+    .form-header{
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h1{
+        text-align: center;
+        color: $primary-color;
+      }
+    }
+    .form-container{
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      form{
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        gap: 1rem;
+        .input-field{
+          height: 50px;
+          width: 400px;
+          border-radius: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          input{
+            border: solid 4px $white;
+            width: 100%;
+            padding: 15px;
+            border-radius: 30px;
+            background-color: transparent;
+            outline: 0;
+            color: rgba($white, 1);
+            font-size: $standar;
+            font-weight: 500;
+            text-align: center;
+            transition: .3s ease-out;
+            &::placeholder{
+              color: rgba($white, 1);
+            }
+            &:focus{
+              border: solid 4px $primary-color;
+              color: $primary-color;
+              &::placeholder{
+                color: $primary-color;
+              }
+            }
+          }
+          select{
+            width: 100%;
+            padding: 15px;
+            border-radius: 30px;
+            background-color: transparent;
+            border: solid 4px $white;
+            outline: 0;
+            color: rgba($white, 1);
+            font-size: $standar;
+            font-weight: 500;
+            text-align: center;
+            transition: .2s ease-out;
+            &:focus{
+              border: solid 4px $primary-color;
+              color: $primary-color;
+            }
+          }
+          &.dis{
+            opacity: .5;
+            pointer-events: none;
+          }
+        }
+        .btn-field{
+          width: 100%;
+          button{
+            width: 100%;
+            border-radius: 30px;
+            height: 50px;
+            background-color: $primary-color;
+            font-size: $standar;
+            color: $black;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s ease-out;
+            outline: 0;
+            border: 0;
+            &:hover{
+              filter: drop-shadow(0 0 4px $primary-color);
+            }
+          }
+        }
+        .err-field{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $secondary-color;
+          width: 400px;
+          text-align: center;
+          &.hide{
+            opacity: 0;
+          }
+
+        }
+      }
+    }
+  }
+  .sent-user{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: $black;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100vh);
+    h1{
+      color: $primary-color;
+    }
+    transition: .3s ease-in-out;
+    &.show{
+      transform: translateY(0);
     }
   }
 }
