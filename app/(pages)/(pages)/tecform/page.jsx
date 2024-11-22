@@ -103,7 +103,7 @@ const AutoForm = () => {
         }
 
         try{
-            const res = await axios.post(`/api/forms/auto`, newUser)
+            const res = await axios.post(`/api/forms/tec`, newUser)
             if(res.data){
                 setUserData({
                     ced: '',
